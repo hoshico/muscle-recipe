@@ -18,10 +18,7 @@
 | Column                 | Type          | Options           |
 | ---------------------- | ------------- | ----------------- |
 | title                  | string        | null: false       |
-| recipe1                | text          | null: false       |
-| recipe2                | text          |                   |
-| recipe3                | text          |                   |
-| recipe4                | text          |                   |
+| recipe                 | text          | null: false       |
 | user                   | references    | foreign_key: true |
 
 
