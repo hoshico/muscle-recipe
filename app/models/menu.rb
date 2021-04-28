@@ -4,6 +4,6 @@ class Menu < ApplicationRecord
   has_one :food_stuffs
 
   with_options presence: true do
-      validates :title, :image, :recipe1
+      validates :title, :image, :recipe
   end
 end
