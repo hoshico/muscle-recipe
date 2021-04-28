@@ -1,0 +1,25 @@
+.top-page-header {
+  background: rgb(251, 178, 95);
+  height: 50px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.title {
+  color:rgb(253, 69, 69);
+  font-size: 20px;
+  margin: 10px;
+}
+
+.header-right {
+  text-align: right;
+}
+
+.lists {
+  display: flex;
+  color: rgb(255, 255, 255);
+  justify-content: space-between;
+  text-align: center;
+}
