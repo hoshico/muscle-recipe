@@ -1,0 +1,14 @@
+<%= render "shared/header" %>
+
+<h1>タンパク質豊富なメニュー</h1>
+
+<div class="maincontainer">
+  <% @menus.each do |menu| %>
+    <p><%= menu.title %></p>
+    <%= image_tag menu.image, class: "menu-img" %>
+  <% end %>
+</div>
+
+<%= link_to(new_menu_path, class: 'post-btn') do %>
+  <span class='post-btn-text'>投稿する</span>
+<% end %>

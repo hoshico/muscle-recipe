@@ -1,0 +1,52 @@
+<div class="items-sell-contents">
+  
+  <header class="items-sell-header">
+  </header>
+
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">レシピ情報を入力</h2>
+    <%= form_with(model: @menu, local: true) do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+    
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        料理イメージ
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+      <div id="image-list"></div>
+    </div>
+    
+    <div class="new-items">
+      <div class="weight-bold-text">
+        料理名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"料理名（必須 20文字まで)", maxlength:"20" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          料理の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :recipe, class:"items-text", id:"item-info", placeholder:"作り方(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+      
+    
+    
+    
+    
+    
+    <div class="post-btn-contents">
+      <%= f.submit "投稿する" ,class:"post-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  </div>
+  <% end %>
+</div>
