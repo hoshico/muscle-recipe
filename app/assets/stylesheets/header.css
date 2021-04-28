@@ -17,9 +17,12 @@
   text-align: right;
 }
 
-.lists {
-  display: flex;
-  color: rgb(255, 255, 255);
+li {
+  margin: 10px 10px 0 0;
   justify-content: space-between;
   text-align: center;
+}
+
+.lists {
+  display: flex;
 }
