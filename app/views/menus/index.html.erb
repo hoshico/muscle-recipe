@@ -4,7 +4,7 @@
 
 <div class="maincontainer">
   <% @menus.each do |menu| %>
-    <p><%= menu.title %></p>
+    <%= link_to menu.title, menu_path(menu.id), class: :menu_title%>
     <%= image_tag menu.image, class: "menu-img" %>
   <% end %>
 </div>
