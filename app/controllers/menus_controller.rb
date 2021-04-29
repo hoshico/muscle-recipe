@@ -28,6 +28,12 @@ class MenusController < ApplicationController
     end
   end
 
+  def destroy
+    @menu = Menu.find(params[:id])
+    @menu.destroy
+    redirect_to root_path
+  end
+
   private
   def menu_params
     params.require(:menu).permit(:title, :image, :recipe).merge(user_id: current_user.id)
