@@ -4,14 +4,13 @@
       <p class="menu__hedding">
         <%= @menu.title %>
       </p>
-      <%= link_to @menu.user_id, root_path, class: :menu_user %>
-      <% if current_user == @menu.user_id %>
+      <%= link_to "by #{@menu.user.nickname}", root_path, class: :menu_user %>
+      <% if current_user.id == @menu.user_id %>
         <div class="menu__manage">
-          <%= link_to "編集する", root_path, class: :menu__btn %>
+          <%= link_to "編集する", edit_menu_path(@menu.id), class: :menu__btn %>
           <%= link_to "削除する", root_path, class: :menu__btn %>
         </div>
       <% end %>
-      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
       <div class="menu__image">
         <%= image_tag @menu.image %>
       </div>
