@@ -28,10 +28,6 @@ class MenusController < ApplicationController
   end
 
   def destroy
-<<<<<<< Updated upstream
-=======
-    @menu = Menu.find(params[:id])
->>>>>>> Stashed changes
     @menu.destroy
     redirect_to root_path
   end
