@@ -1,0 +1,49 @@
+<main class="main">
+  <div class="inner">
+    <div class="menu__wrapper">
+      <p class="menu__hedding">
+        <%= @menu.title %>
+      </p>
+      <%= link_to @menu.user_id, root_path, class: :menu_user %>
+      <% if current_user == @menu.user_id %>
+        <div class="menu__manage">
+          <%= link_to "編集する", root_path, class: :menu__btn %>
+          <%= link_to "削除する", root_path, class: :menu__btn %>
+        </div>
+      <% end %>
+      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <div class="menu__image">
+        <%= image_tag @menu.image %>
+      </div>
+      <div class="menu__body">
+        <div class="menu__detail">
+          <p class="detail__title">作り方</p>
+          <p class="detail__message">
+            <%= @menu.recipe %>
+          </p>
+        </div>
+      </div>
+      <div class="prototype__comments">
+        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
+          <%# <%= form_with model: モデル名,local: true do |f|%>
+            <div class="field">
+              <%# <%= f.label :hoge, "コメント" %><br />
+              <%# <%= f.text_field :hoge, id:"comment_text" %>
+            </div>
+            <div class="actions">
+              <%# <%= f.submit "送信する", class: :form__btn  %>
+            </div>
+          <%# <% end %> 
+        <%# // ログインしているユーザーには上記を表示する %>
+        <ul class="comments_lists">
+          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+            <li class="comments_list">
+              <%# <%= " コメントのテキスト "%>
+              <%# <%= link_to "（ ユーザー名 ）", root_path, class: :comment_user %>
+            </li>
+          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
