@@ -1,4 +1,6 @@
 class MenusController < ApplicationController
+  before_action :set_menu, only: [:show, :edit, :update, :destroy]
+
   def index
     @menus = Menu.all
   end 
@@ -12,15 +14,12 @@ class MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.find(params[:id])
   end
 
   def edit
-    @menu = Menu.find(params[:id])
   end
 
   def update
-    @menu = Menu.find(params[:id])
     if @menu.update(menu_params)
       redirect_to menu_path(@menu.id)
     else
@@ -29,7 +28,6 @@ class MenusController < ApplicationController
   end
 
   def destroy
-    @menu = Menu.find(params[:id])
     @menu.destroy
     redirect_to root_path
   end
