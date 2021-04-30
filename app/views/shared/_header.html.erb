@@ -1,14 +1,15 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
-  <div class="title">マッスルレシピ</div>
+  <%# <div class="title">マッスルレシピ</div> %>
+  <%= link_to image_tag("logo.png", :size => '264x54' ,class:"logo-icon"), "/" %>
   <div class="header-right">
     <ul class='lists'>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <li><%= link_to current_user.nickname, user_path(current_user.id), class: "header-btn" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-btn" %></li>
       <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>     
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "header-btn" %></li>     
+        <li><%= link_to '新規登録', new_user_registration_path, class: "header-btn" %></li>
       <% end %>
     </ul>
   </div>

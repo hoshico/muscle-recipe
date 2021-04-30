@@ -1,16 +1,9 @@
 .top-page-header {
-  background: rgb(251, 178, 95);
-  height: 50px;
+  background: rgb(127 228 167);
+  height: 54px;
   padding: 0 40px;
   display: flex;
   justify-content: space-between;
-}
-
-
-.title {
-  color:rgb(253, 69, 69);
-  font-size: 20px;
-  margin: 10px;
 }
 
 .header-right {
@@ -29,4 +22,19 @@ li a {
 
 .lists {
   display: flex;
+}
+
+.header-btn {
+  padding: 3px;
+  display: flex;
+  font-size: 20px;
+  box-shadow: 2px 2px 0 0 black;
+  border-radius: 5px;
+  background-color: rgb(230, 243, 112);
+}
+
+.header-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+  background-color: rgb(252, 195, 6);
 }

@@ -5,6 +5,7 @@
 <div class="maincontainer">
   <% @menus.each do |menu| %>
     <%= link_to menu.title, menu_path(menu.id), class: :menu_title%>
+    <%= link_to "投稿者:#{menu.user.nickname}", user_path(menu.user_id), class: :user_nickname%>
     <%= image_tag menu.image, class: "menu-img" %>
   <% end %>
 </div>
