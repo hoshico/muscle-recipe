@@ -39,7 +39,14 @@
           メイン食材
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :hoge, class:"menus-text", id:"item-info", placeholder:"材料(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+        <div class="ingredients-container">
+          <div>【肉類】</div>
+          <div>分量</div>
+          <%= f.text_area :hoge, class:"menus-text", id:"item-info", placeholder:"材料(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+          <div>タンパク質</div>
+          <div>脂質</div>
+          <div>炭水化物</div>
+        </div>
       </div>
 
 

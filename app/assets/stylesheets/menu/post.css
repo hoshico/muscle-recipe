@@ -98,16 +98,31 @@
 
 
 
-
+/*材料*/
 
 .menus-ingredients {
       margin-top: 5vh;
 }
 
+.ingredients-text {
+      width: 15%;
+      padding: 16px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      resize: none;
+}
+
+.ingredients-container {
+      display: flex;
+      justify-content: space-around;
+}
+
+/*材料*/
+
 .menus-explain {
       margin-top: 2vh;
 }
-
 
 
 
