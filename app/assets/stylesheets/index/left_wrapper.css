@@ -1,0 +1,40 @@
+.main_container {
+      display: flex;
+}
+
+.left_wrapper {
+      background-color: rgb(211, 203, 203);
+      width: calc(100% / 3);
+      height: calc(100% / 3);
+}
+
+.card {
+      width: 90%;
+      height: 90%; 
+      margin: 10px;
+      
+      background-color: white;
+}
+.card_img { 
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+}
+.card_title {
+      font-size: 20px;
+      margin-bottom: 8px;
+      font-weight: bold;
+}
+.card_user {
+      font-size: 12px;
+      color: #999;
+      text-align: right;
+      text-decoration: underline;
+}
+
+.main_container span {
+      padding:10px 0 0 20px;
+      font-size: 20px;
+      font-weight: bold;
+}
+
