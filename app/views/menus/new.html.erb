@@ -42,7 +42,7 @@
         <div class="ingredients-container">
           <div class="category_id">
             <p>【肉類】</p>
-            <%= f.text_area :hoge, class:"ingredients-text", id:"item-info", placeholder:"材料(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+            <%= f.collection_select(:meet_id, Meet.all, :id, :name, {}, {class:"meet-select"}) %>
           </div>
           <div class="quantity">
             <p>分量</p>
