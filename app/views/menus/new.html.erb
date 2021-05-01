@@ -40,12 +40,26 @@
           <span class="indispensable">必須</span>
         </div>
         <div class="ingredients-container">
-          <div>【肉類】</div>
-          <div>分量</div>
-          <%= f.text_area :hoge, class:"menus-text", id:"item-info", placeholder:"材料(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
-          <div>タンパク質</div>
-          <div>脂質</div>
-          <div>炭水化物</div>
+          <div class="category_id">
+            <p>【肉類】</p>
+            <%= f.text_area :hoge, class:"ingredients-text", id:"item-info", placeholder:"材料(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+          </div>
+          <div class="quantity">
+            <p>分量</p>
+            <div class="num-display">g</div>
+          </div>
+          <div class="protein">
+            <p>タンパク質</p>
+            <div class="num-display">g</div>
+          </div>
+          <div class="lipid">
+            <p>脂質</p>
+            <div class="num-display">g</div>
+          </div>
+          <div class="carbo">
+            <p>炭水化物</p>
+            <div class="num-display">g</div>
+          </div>
         </div>
       </div>
 
