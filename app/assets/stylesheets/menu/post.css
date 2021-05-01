@@ -20,13 +20,13 @@
       padding: 10vh 15vw;
 }
 
-.items-sell-title {
+.menus-sell-title {
       font-size: 22px;
       font-weight: bold;
       text-align: center;
 }
 
-/* 共通 */
+
 .indispensable {
       background: #ea352d;
       margin-left: 8px;
@@ -83,11 +83,11 @@
       margin-bottom: 15px;
 }
 
-.new-items {
+.new-menus {
       padding: 2vh 0;
 }
 
-.items-text {
+.menus-text {
       width: 100%;
       padding: 16px 16px 8px;
       border-radius: 4px;
@@ -96,9 +96,21 @@
       resize: none;
 }
 
-.items-explain {
+
+
+
+
+.menus-ingredients {
+      margin-top: 5vh;
+}
+
+.menus-explain {
       margin-top: 2vh;
 }
+
+
+
+
 
 .items-detail {
       display: flex;
@@ -160,12 +172,12 @@ text-decoration: none;
 /* /注意書き */
 
 /* 下部ボタン */
-.sell-btn-contents {
+.post-btn-contents {
 width: 100%;
 text-align: center;
 }
 
-.sell-btn {
+.post-btn {
 background: #ea352d;
 border: 1px solid #ea352d;
 color: #fff;

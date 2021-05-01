@@ -5,7 +5,7 @@
   </header>
 
   <div class="menu-post-main">
-    <h2 class="items-sell-title">レシピ情報を入力</h2>
+    <h2 class="menus-sell-title">レシピ情報を入力</h2>
     <%= form_with(model: @menu, local: true) do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
@@ -24,18 +24,32 @@
       <div id="image-list"></div>
     </div>
     
-    <div class="new-items">
+    <div class="new-menus">
       <div class="weight-bold-text">
         料理名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"料理名（必須 20文字まで)", maxlength:"20" %>
-      <div class="items-explain">
+      <%= f.text_area :title, class:"menus-text", id:"menu-name", placeholder:"料理名（必須 20文字まで)", maxlength:"20" %>
+      
+      
+
+      
+      <div class="menus-ingredients">
+        <div class="weight-bold-text">
+          メイン食材
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :hoge, class:"menus-text", id:"item-info", placeholder:"材料(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+
+
+
+      <div class="menus-explain">
         <div class="weight-bold-text">
           料理の説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :recipe, class:"items-text", id:"item-info", placeholder:"作り方(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :recipe, class:"menus-text", id:"item-info", placeholder:"作り方(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
       
