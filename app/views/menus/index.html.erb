@@ -1,15 +1,21 @@
 <%= render "shared/header" %>
-
-<h1>タンパク質豊富なメニュー</h1>
-
-<div class="maincontainer">
-  <% @menus.each do |menu| %>
-    <%= link_to menu.title, menu_path(menu.id), class: :menu_title%>
-    <%= link_to "投稿者:#{menu.user.nickname}", user_path(menu.user_id), class: :user_nickname%>
-    <%= image_tag menu.image, class: "menu-img" %>
-  <% end %>
+<div class="slide">
+</div>
+<div class="main_container">
+  <div class="left_wrapper">
+    <h1><span>newレシピ</span></h1>
+    <%= render partial: 'menu', collection: @menus %>
+  </div>
+  <div class="center_wrapper">
+      <h1><span>高タンパクレシピ</span></h1>
+    <%= render partial: 'menu', collection: @menus %>
+  </div>
+  <div class="right_wrapper">
+      <h1><span>人気レシピ</span></h1>
+    <%= render partial: 'menu', collection: @menus %>
+  </div>
 </div>
 
 <%= link_to(new_menu_path, class: 'post-btn') do %>
-  <span class='post-btn-text'>投稿する</span>
+  <p><span class='post-btn-text'>レシピを投稿する</span></P>
 <% end %>
