@@ -102,6 +102,7 @@
 
 .menus-ingredients {
       margin-top: 5vh;
+      height: 400px;
       background-color: rgb(226, 204, 176);
       border: 1px dotted #000;
 }
@@ -130,11 +131,35 @@
       text-align: right;
       margin: 10px 5px 5px 0;
 }
+.pro-content {
+      width: 100px;
+      height: 30px;
+      border-bottom: 2px solid black;
+      text-align: right;
+      margin: 10px 5px 5px 0;
+}
 
 .meet-select{
-      height: 30px;
-      width: 90px;
+      margin-top: 10px;
+      height: 25px;
+      width: 115px;
 }
+.quantity-input {
+      height: 25px;
+      width: 100px;
+      margin-right: 5px;
+}
+
+.quantity_sum {
+      display: flex;
+      margin: 10px 5px 0 0;
+}
+
+.total-container {
+      display: flex;
+      margin: 15px 5px 0 0;
+}
+
 
 /*材料*/
 
@@ -202,7 +227,7 @@ color: #0099e8;
 text-decoration: none;
 }
 
-/* /注意書き */
+
 
 /* 下部ボタン */
 .post-btn-contents {
