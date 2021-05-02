@@ -40,17 +40,141 @@
           <span class="indispensable">必須</span>
         </div>
         <div class="ingredients-container">
-          <div>【肉類】</div>
-          <div>分量</div>
-          <%= f.text_area :hoge, class:"menus-text", id:"item-info", placeholder:"材料(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
-          <div>タンパク質</div>
-          <div>脂質</div>
-          <div>炭水化物</div>
+          <div class="category_id">
+            <p>【肉類】</p>
+
+            <% meet_options = Meet.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
+            <%= f.select(:meet_id, meet_options, {}, {class:"#", data:{select:0}, id:"meet" }) %>
+            
+            <%# <%= f.collection_select(:meet_id, Meet.all, :id, :name, {}, {class:"meet-select"}) %> 
+          </div>
+          <div class="quantity">
+            <p>分量</p>
+              <div class="quantity_sum">
+                <%= f.text_field :hoge, class:"quantity-input", id:"quan-input", placeholder:"例）150" %>
+                <div>g</div>
+              </div>
+          </div>
+          <div class="protein">
+            <p>タンパク質</p>
+            <%# <span id="pro-content"></span>g %>
+            <div class="num-display">g</div>
+          </div>
+          <div class="lipid">
+            <p>脂質</p>
+            <div class="num-display">g</div>
+          </div>
+          <div class="carbo">
+            <p>炭水化物</p>
+            <div class="num-display">g</div>
+          </div>
         </div>
+        <div class="ingredients-container">
+          <div class="category_id">
+            <p>【魚類】</p>
+            <%= f.collection_select(:hoge, Meet.all, :id, :name, {}, {class:"meet-select"}) %>
+          </div>
+          <div class="quantity">
+            <p>分量</p>
+              <div class="quantity_sum">
+                <%= f.text_field :hoge, class:"quantity-input", id:"quan-input", placeholder:"例）150" %>
+                <div>g</div>
+              </div>
+          </div>
+          <div class="protein">
+            <p>タンパク質</p>
+            <%# <span id="pro-content"></span>g %>
+            <div class="num-display">g</div>
+          </div>
+          <div class="lipid">
+            <p>脂質</p>
+            <div class="num-display">g</div>
+          </div>
+          <div class="carbo">
+            <p>炭水化物</p>
+            <div class="num-display">g</div>
+          </div>
+        </div>
+        <div class="ingredients-container">
+          <div class="category_id">
+            <p>【野菜・豆】</p>
+            <%= f.collection_select(:hoge, Meet.all, :id, :name, {}, {class:"meet-select"}) %>
+          </div>
+          <div class="quantity">
+            <p>分量</p>
+              <div class="quantity_sum">
+                <%= f.text_field :hoge, class:"quantity-input", id:"quan-input", placeholder:"例）150" %>
+                <div>g</div>
+              </div>
+          </div>
+          <div class="protein">
+            <p>タンパク質</p>
+            <%# <span id="pro-content"></span>g %>
+            <div class="num-display">g</div>
+          </div>
+          <div class="lipid">
+            <p>脂質</p>
+            <div class="num-display">g</div>
+          </div>
+          <div class="carbo">
+            <p>炭水化物</p>
+            <div class="num-display">g</div>
+          </div>
+        </div>
+        <div class="ingredients-container">
+          <div class="category_id">
+            <p>【乳製品・卵】</p>
+            <%= f.collection_select(:hoge, Meet.all, :id, :name, {}, {class:"meet-select"}) %>
+          </div>
+          <div class="quantity">
+            <p>分量</p>
+              <div class="quantity_sum">
+                <%= f.text_field :hoge, class:"quantity-input", id:"quan-input", placeholder:"例）150" %>
+                <div>g</div>
+              </div>
+          </div>
+          <div class="protein">
+            <p>タンパク質</p>
+            <%# <span id="pro-content"></span>g %>
+            <div class="num-display">g</div>
+          </div>
+          <div class="lipid">
+            <p>脂質</p>
+            <div class="num-display">g</div>
+          </div>
+          <div class="carbo">
+            <p>炭水化物</p>
+            <div class="num-display">g</div>
+          </div>
+        </div>
+        <div class="ingredients-container">
+          <div class="category_id">
+            <p></p>
+          </div>
+          <div class="quantity">
+            <p></p>
+              <div class="quantity_sum">
+              </div>
+          </div>
+          <div class="total-container">
+            <div class="protein">
+              <p>合計:タンパク質</p>
+              <%# <span id="pro-content"></span>g %>
+              <div class="num-display">g</div>
+            </div>
+            <div class="lipid">
+              <p>合計:脂質</p>
+              <div class="num-display">g</div>
+            </div>
+            <div class="carbo">
+              <p>合計:炭水化物</p>
+              <div class="num-display">g</div>
+            </div>
+          </div>
+        </div>
+
+
       </div>
-
-
-
       <div class="menus-explain">
         <div class="weight-bold-text">
           料理の説明
@@ -59,7 +183,6 @@
         <%= f.text_area :recipe, class:"menus-text", id:"item-info", placeholder:"作り方(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
-      
     <div class="post-btn-contents">
       <%= f.submit "投稿する" ,class:"post-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
