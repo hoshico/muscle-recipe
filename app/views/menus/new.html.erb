@@ -32,20 +32,17 @@
       <%= f.text_area :title, class:"menus-text", id:"menu-name", placeholder:"料理名（必須 20文字まで)", maxlength:"20" %>
       
       
-
-      
       <div class="menus-ingredients">
         <div class="weight-bold-text">
           メイン食材
           <span class="indispensable">必須</span>
         </div>
+
         <div class="ingredients-container">
           <div class="category_id">
             <p>【肉類】</p>
-
             <% meet_options = Meet.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
             <%= f.select(:meet_id, meet_options, {}, {class:"#", data:{select:0}, id:"meet" }) %>
-
           </div>
           <div class="quantity">
             <p>分量</p>
@@ -54,64 +51,25 @@
                 <div>g</div>
               </div>
           </div>
-          <div class="protein">
+          <div class="pfc-container">
             <p>タンパク質</p>
             <div class="pfc-window">
               <span id="pro-content"></span>g
             </div>
-            <%# <div class="num-display">g</div> %>
           </div>
-          <div class="lipid">
+          <div class="pfc-container">
             <p>脂質</p>
             <div class="pfc-window">
               <span id="fat-content"></span><div>g</div>
             </div>
-            <%# <div class="num-display">g</div> %>
           </div>
-          <div class="carbo">
+          <div class="pfc-container">
             <p>炭水化物</p>
             <div class="pfc-window">
               <span id="carbo-content"></span>g
             </div>
-            <%# <div class="num-display">g</div> %>
           </div>
         </div>
-        
-        <div class="ingredients-container">
-          <div class="category_id">  
-            <p></p>
-          </div>
-          <div class="quantity">
-            <p></p>
-              <div class="quantity_sum">
-              </div>
-          </div>
-          <div class="total-container">
-            <div class="protein">
-            <p>タンパク質</p>
-            <div class="pfc-window">
-              <span id="total-pro"></span>g
-            </div>
-            <%# <div class="num-display">g</div> %>
-          </div>
-          <div class="lipid">
-            <p>脂質</p>
-            <div class="pfc-window">
-              <span id="total-fat"></span>g
-            </div>
-            <%# <div class="num-display">g</div> %>
-          </div>
-          <div class="carbo">
-            <p>炭水化物</p>
-            <div class="pfc-window">
-              <span id="total-carbo"><span>g
-            </div>
-            <%# <div class="num-display">g</div> %>
-          </div>
-          </div>
-        </div>
-
-
       </div>
       <div class="menus-explain">
         <div class="weight-bold-text">

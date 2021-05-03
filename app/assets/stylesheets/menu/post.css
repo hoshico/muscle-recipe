@@ -142,11 +142,11 @@
 
 .meet-select{
       margin-top: 10px;
-      height: 25px;
+      height: 26px;
       width: 115px;
 }
 .quantity-input {
-      height: 25px;
+      height: 24px;
       width: 100px;
       margin-right: 5px;
 }
@@ -154,6 +154,14 @@
 .quantity_sum {
       display: flex;
       margin: 0 5px 0 0;
+}
+
+.pfc-container {
+      margin-right: 5px;
+}
+
+.pfc-container p {
+      text-align: center;
 }
 
 .total-container {
@@ -165,7 +173,9 @@
       display: flex;
       justify-content: space-around;
       width: 70px;
+      height: 23px;
       background-color: white;
+      border: 1px solid black;
 }
 
 
