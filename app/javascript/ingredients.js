@@ -13,12 +13,23 @@ const pfc = function () {
       const quantityInput = document.getElementById("quan-input");
       quantityInput.addEventListener("input", () => {
          const inputValue = quantityInput.value;
-         console.log(inputValue * dataNumP);
-         console.log(inputValue * dataNumF);
-         console.log(inputValue * dataNumC);
+
+         const mulProInput = document.getElementById("pro-content")
+         const mulFatInput = document.getElementById("fat-content")
+         const mulCarboInput = document.getElementById("carbo-content")
+
+         mulProInput.innerHTML = Math.floor(inputValue * dataNumP)
+         mulFatInput.innerHTML = Math.floor(inputValue * dataNumF)
+         mulCarboInput.innerHTML = Math.floor(inputValue * dataNumC)
+         // console.log(inputValue * dataNumP);
+         // console.log(inputValue * dataNumF);
+         // console.log(inputValue * dataNumC);
       })   
   })
 };
+
+// const totalPro = document.getElementById("total-pro");
+// totalPro.innerHTML = Math.floor(inputValue * dataNumP)
  
 window.addEventListener("load", pfc);
  

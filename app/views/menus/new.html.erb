@@ -45,8 +45,7 @@
 
             <% meet_options = Meet.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
             <%= f.select(:meet_id, meet_options, {}, {class:"#", data:{select:0}, id:"meet" }) %>
-            
-            <%# <%= f.collection_select(:meet_id, Meet.all, :id, :name, {}, {class:"meet-select"}) %> 
+
           </div>
           <div class="quantity">
             <p>分量</p>
@@ -57,98 +56,29 @@
           </div>
           <div class="protein">
             <p>タンパク質</p>
-            <%# <span id="pro-content"></span>g %>
-            <div class="num-display">g</div>
+            <div class="pfc-window">
+              <span id="pro-content"></span>g
+            </div>
+            <%# <div class="num-display">g</div> %>
           </div>
           <div class="lipid">
             <p>脂質</p>
-            <div class="num-display">g</div>
+            <div class="pfc-window">
+              <span id="fat-content"></span><div>g</div>
+            </div>
+            <%# <div class="num-display">g</div> %>
           </div>
           <div class="carbo">
             <p>炭水化物</p>
-            <div class="num-display">g</div>
+            <div class="pfc-window">
+              <span id="carbo-content"></span>g
+            </div>
+            <%# <div class="num-display">g</div> %>
           </div>
         </div>
+        
         <div class="ingredients-container">
-          <div class="category_id">
-            <p>【魚類】</p>
-            <%= f.collection_select(:hoge, Meet.all, :id, :name, {}, {class:"meet-select"}) %>
-          </div>
-          <div class="quantity">
-            <p>分量</p>
-              <div class="quantity_sum">
-                <%= f.text_field :hoge, class:"quantity-input", id:"quan-input", placeholder:"例）150" %>
-                <div>g</div>
-              </div>
-          </div>
-          <div class="protein">
-            <p>タンパク質</p>
-            <%# <span id="pro-content"></span>g %>
-            <div class="num-display">g</div>
-          </div>
-          <div class="lipid">
-            <p>脂質</p>
-            <div class="num-display">g</div>
-          </div>
-          <div class="carbo">
-            <p>炭水化物</p>
-            <div class="num-display">g</div>
-          </div>
-        </div>
-        <div class="ingredients-container">
-          <div class="category_id">
-            <p>【野菜・豆】</p>
-            <%= f.collection_select(:hoge, Meet.all, :id, :name, {}, {class:"meet-select"}) %>
-          </div>
-          <div class="quantity">
-            <p>分量</p>
-              <div class="quantity_sum">
-                <%= f.text_field :hoge, class:"quantity-input", id:"quan-input", placeholder:"例）150" %>
-                <div>g</div>
-              </div>
-          </div>
-          <div class="protein">
-            <p>タンパク質</p>
-            <%# <span id="pro-content"></span>g %>
-            <div class="num-display">g</div>
-          </div>
-          <div class="lipid">
-            <p>脂質</p>
-            <div class="num-display">g</div>
-          </div>
-          <div class="carbo">
-            <p>炭水化物</p>
-            <div class="num-display">g</div>
-          </div>
-        </div>
-        <div class="ingredients-container">
-          <div class="category_id">
-            <p>【乳製品・卵】</p>
-            <%= f.collection_select(:hoge, Meet.all, :id, :name, {}, {class:"meet-select"}) %>
-          </div>
-          <div class="quantity">
-            <p>分量</p>
-              <div class="quantity_sum">
-                <%= f.text_field :hoge, class:"quantity-input", id:"quan-input", placeholder:"例）150" %>
-                <div>g</div>
-              </div>
-          </div>
-          <div class="protein">
-            <p>タンパク質</p>
-            <%# <span id="pro-content"></span>g %>
-            <div class="num-display">g</div>
-          </div>
-          <div class="lipid">
-            <p>脂質</p>
-            <div class="num-display">g</div>
-          </div>
-          <div class="carbo">
-            <p>炭水化物</p>
-            <div class="num-display">g</div>
-          </div>
-        </div>
-        <div class="ingredients-container">
-          <div class="category_id">
+          <div class="category_id">  
             <p></p>
           </div>
           <div class="quantity">
@@ -158,18 +88,26 @@
           </div>
           <div class="total-container">
             <div class="protein">
-              <p>合計:タンパク質</p>
-              <%# <span id="pro-content"></span>g %>
-              <div class="num-display">g</div>
+            <p>タンパク質</p>
+            <div class="pfc-window">
+              <span id="total-pro"></span>g
             </div>
-            <div class="lipid">
-              <p>合計:脂質</p>
-              <div class="num-display">g</div>
+            <%# <div class="num-display">g</div> %>
+          </div>
+          <div class="lipid">
+            <p>脂質</p>
+            <div class="pfc-window">
+              <span id="total-fat"></span>g
             </div>
-            <div class="carbo">
-              <p>合計:炭水化物</p>
-              <div class="num-display">g</div>
+            <%# <div class="num-display">g</div> %>
+          </div>
+          <div class="carbo">
+            <p>炭水化物</p>
+            <div class="pfc-window">
+              <span id="total-carbo"><span>g
             </div>
+            <%# <div class="num-display">g</div> %>
+          </div>
           </div>
         </div>
 

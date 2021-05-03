@@ -119,6 +119,7 @@
 .ingredients-container {
       display: flex;
       justify-content: space-around;
+      margin-top: 10px;
 }
 .category_id {
       padding-right: 20px;
@@ -152,12 +153,19 @@
 
 .quantity_sum {
       display: flex;
-      margin: 10px 5px 0 0;
+      margin: 0 5px 0 0;
 }
 
 .total-container {
       display: flex;
       margin: 15px 5px 0 0;
+}
+
+.pfc-window {
+      display: flex;
+      justify-content: space-around;
+      width: 70px;
+      background-color: white;
 }
 
 
