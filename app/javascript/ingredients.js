@@ -6,19 +6,40 @@ const pfc = function () {
       const dataNumP = meetSelectBox.options[ meetSelectBox.selectedIndex].getAttribute("data-protein");
       const dataNumF = meetSelectBox.options[ meetSelectBox.selectedIndex].getAttribute("data-fat");
       const dataNumC = meetSelectBox.options[ meetSelectBox.selectedIndex].getAttribute("data-carbo");
-      console.log(dataNumP);
-      console.log(dataNumF);
-      console.log(dataNumC);
+   
 
       const quantityInput = document.getElementById("quan-input");
       quantityInput.addEventListener("input", () => {
          const inputValue = quantityInput.value;
-         console.log(inputValue * dateNumP);
-         console.log(inputValue * dateNumF);
-         console.log(inputValue * dateNumC);
+
+         const mulProInput = document.getElementById("pro-content")
+         const mulFatInput = document.getElementById("fat-content")
+         const mulCarboInput = document.getElementById("carbo-content")
+
+         mulProInput.innerHTML = Math.floor(inputValue * dataNumP)
+         mulFatInput.innerHTML = Math.floor(inputValue * dataNumF)
+         mulCarboInput.innerHTML = Math.floor(inputValue * dataNumC)
+
+         var totalPro = Math.floor(inputValue * dataNumP)
+
       })   
   })
 };
+
+
+// const mulProInput = document.getElementById("pro-content");
+// mulProInput.addEventListener("input", () => {
+//    const lastP = mulProInput.value;
+//    const totalPro = document.getElementById("total-pro");
+//    totalPro.innerHTML = Math.floor(lastP)
+// })  
+
+
+
+
+
+
  
 window.addEventListener("load", pfc);
+
  
