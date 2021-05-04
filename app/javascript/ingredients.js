@@ -49,15 +49,33 @@ const pfc = function () {
      mulFatVegeInput.innerHTML = Math.floor(inputVegeValue * dataVegeNumF)
      mulCarboVegeInput.innerHTML = Math.floor(inputVegeValue * dataVegeNumC)
 
+     /* 乳製品・卵 */
+     const dataDairyNumP = selectDairy.options[ selectDairy.selectedIndex].getAttribute("data-protein");
+     const dataDairyNumF = selectDairy.options[ selectDairy.selectedIndex].getAttribute("data-fat");
+     const dataDairyNumC = selectDairy.options[ selectDairy.selectedIndex].getAttribute("data-carbo");
+
+     const inputDairyValue = quantityDairyInput.value;
+
+     const mulProDairyInput = document.getElementById("dairy-pro-content")
+     const mulFatDairyInput = document.getElementById("dairy-fat-content")
+     const mulCarboDairyInput = document.getElementById("dairy-carbo-content")
+
+     mulProDairyInput.innerHTML = Math.floor(inputDairyValue * dataDairyNumP)
+     mulFatDairyInput.innerHTML = Math.floor(inputDairyValue * dataDairyNumF)
+     mulCarboDairyInput.innerHTML = Math.floor(inputDairyValue * dataDairyNumC)
+
+
 
 
       /* 合計ゾーン */
+      /* プロテイン */
      const totalProInput = document.getElementById("total-protein")
-     totalProInput.value = Math.floor(inputVegeValue * dataVegeNumP + inputFishValue * dataFishNumP + inputValue * dataNumP)
-
+     totalProInput.value = Math.floor( inputDairyValue * dataDairyNumP + inputVegeValue * dataVegeNumP + inputFishValue * dataFishNumP + inputValue * dataNumP)
+      /* 脂質 */
      const totalFatInput = document.getElementById("total-fat")
-     totalFatInput.value = Math.floor(inputVegeValue * dataVegeNumF + inputFishValue * dataFishNumF + inputValue * dataNumF)
-
+     totalFatInput.value = Math.floor( inputDairyValue * dataDairyNumF + inputVegeValue * dataVegeNumF + inputFishValue * dataFishNumF + inputValue * dataNumF)
+      /* 炭水化物 */
+      
 
    };
 
@@ -91,12 +109,18 @@ const pfc = function () {
       keisan();
    })   
 
+   /* 乳製品・卵発動 */
+   const selectDairy = document.getElementById("dairy");
+   selectDairy.addEventListener('change', function (){
+      keisan();
+   })  
+   const quantityDairyInput = document.getElementById("dairy-quan-input");
+   quantityDairyInput.addEventListener("input", () => {
+      keisan();
+   })
 
 
 };
-
-
-
  
 window.addEventListener("load", pfc);
 
