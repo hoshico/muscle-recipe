@@ -70,6 +70,44 @@
             </div>
           </div>
         </div>
+
+        <div class="ingredients-container">
+          <div class="category_id">
+            <p>【魚】</p>
+            <% fish_options = Fish.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
+            <%= f.select(:fish_id, fish_options, {}, {class:"#", data:{select:0}, id:"fish" }) %>
+          </div>
+          <div class="quantity">
+            <p>分量</p>
+              <div class="quantity_sum">
+                <%= f.text_field :hoge, class:"quantity-input", id:"fish-quan-input", placeholder:"例）150" %>
+                <div>g</div>
+              </div>
+          </div>
+          <div class="pfc-container">
+            <p>タンパク質</p>
+            <div class="pfc-window">
+              <span id="fish-pro-content"></span>g
+            </div>
+          </div>
+          <div class="pfc-container">
+            <p>脂質</p>
+            <div class="pfc-window">
+              <span id="fish-fat-content"></span><div>g</div>
+            </div>
+          </div>
+          <div class="pfc-container">
+            <p>炭水化物</p>
+            <div class="pfc-window">
+              <span id="fish-carbo-content"></span>g
+            </div>
+          </div>
+        </div>
+
+        <%= f.text_field :price, class:"total-input", id:"total-protein", :placeholder => "合計:タンパク質", :readonly => true %>
+
+        
+
       </div>
       <div class="menus-explain">
         <div class="weight-bold-text">
