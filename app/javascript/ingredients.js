@@ -2,6 +2,7 @@ const pfc = function () {
    
    function keisan(){
      
+      /* お肉ゾーン */ 
      const dataNumP = selectMeet.options[ selectMeet.selectedIndex].getAttribute("data-protein");
      const dataNumF = selectMeet.options[ selectMeet.selectedIndex].getAttribute("data-fat");
      const dataNumC = selectMeet.options[ selectMeet.selectedIndex].getAttribute("data-carbo");
@@ -18,7 +19,7 @@ const pfc = function () {
 
 
 
-
+      /* お魚ゾーン */
      const dataFishNumP = selectFish.options[ selectFish.selectedIndex].getAttribute("data-protein");
      const dataFishNumF = selectFish.options[ selectFish.selectedIndex].getAttribute("data-fat");
      const dataFishNumC = selectFish.options[ selectFish.selectedIndex].getAttribute("data-carbo");
@@ -33,13 +34,34 @@ const pfc = function () {
      mulFatFishInput.innerHTML = Math.floor(inputFishValue * dataFishNumF)
      mulCarboFishInput.innerHTML = Math.floor(inputFishValue * dataFishNumC)
 
+      /* 野菜ゾーン */
+     const dataVegeNumP = selectVege.options[ selectVege.selectedIndex].getAttribute("data-protein");
+     const dataVegeNumF = selectVege.options[ selectVege.selectedIndex].getAttribute("data-fat");
+     const dataVegeNumC = selectVege.options[ selectVege.selectedIndex].getAttribute("data-carbo");
 
+     const inputVegeValue = quantityVegeInput.value;
+
+     const mulProVegeInput = document.getElementById("vege-pro-content")
+     const mulFatVegeInput = document.getElementById("vege-fat-content")
+     const mulCarboVegeInput = document.getElementById("vege-carbo-content")
+
+     mulProVegeInput.innerHTML = Math.floor(inputVegeValue * dataVegeNumP)
+     mulFatVegeInput.innerHTML = Math.floor(inputVegeValue * dataVegeNumF)
+     mulCarboVegeInput.innerHTML = Math.floor(inputVegeValue * dataVegeNumC)
+
+
+
+      /* 合計ゾーン */
      const totalProInput = document.getElementById("total-protein")
-     totalProInput.value = Math.floor(inputFishValue * dataFishNumP + inputValue * dataNumP)
+     totalProInput.value = Math.floor(inputVegeValue * dataVegeNumP + inputFishValue * dataFishNumP + inputValue * dataNumP)
+
+     const totalFatInput = document.getElementById("total-fat")
+     totalFatInput.value = Math.floor(inputVegeValue * dataVegeNumF + inputFishValue * dataFishNumF + inputValue * dataNumF)
 
 
    };
 
+   /* お肉発動 */
    const selectMeet = document.getElementById("meet");
    selectMeet.addEventListener('change', function (){
       keisan();
@@ -49,7 +71,7 @@ const pfc = function () {
       keisan();
    })   
   
-
+   /* 魚発動 */
    const selectFish = document.getElementById("fish");
    selectFish.addEventListener('change', function (){
       keisan();
@@ -58,6 +80,19 @@ const pfc = function () {
    quantityFishInput.addEventListener("input", () => {
       keisan();
    })   
+
+   /* 野菜発動 */
+   const selectVege = document.getElementById("vege");
+   selectVege.addEventListener('change', function (){
+      keisan();
+   })  
+   const quantityVegeInput = document.getElementById("vege-quan-input");
+   quantityVegeInput.addEventListener("input", () => {
+      keisan();
+   })   
+
+
+
 };
 
 
