@@ -170,20 +170,25 @@
           </div>
         </div>
 
+        <div class="total-container">
+          <%= f.text_field :protein, class:"total-input", id:"total-protein", :placeholder => "合計:タンパク質", :readonly => true %><p>g</p>
+          <%= f.text_field :fat, class:"total-input", id:"total-fat", :placeholder => "合計:脂質", :readonly => true %><p>g</p>
+          <%= f.text_field :carbo, class:"total-input", id:"total-carbo", :placeholder => "合計:炭水化物", :readonly => true %><p>g</p>
+        </div>
 
-        <%= f.text_field :price, class:"total-input", id:"total-protein", :placeholder => "合計:タンパク質", :readonly => true %>
-        <%= f.text_field :price, class:"total-input", id:"total-fat", :placeholder => "合計:脂質", :readonly => true %>
-        <%= f.text_field :price, class:"total-input", id:"total-carbo", :placeholder => "合計:炭水化物", :readonly => true %>
-
+        <div class="etc-container">
+          <p>その他材料</p>
+          <%= f.text_area :etc, class:"etc-input", id:"etc", :placeholder => "◯◯: 150g \n△△: 3個 " %>
+        </div>
         
 
       </div>
       <div class="menus-explain">
         <div class="weight-bold-text">
-          料理の説明
+          料理の作り方
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :recipe, class:"menus-text", id:"item-info", placeholder:"作り方(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :recipe, class:"menus-text", id:"item-info", placeholder:"(※必須 1000文字まで)\n1.~~~~\n2.~~~~" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <div class="post-btn-contents">

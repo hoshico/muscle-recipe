@@ -102,8 +102,8 @@
 
 .menus-ingredients {
       margin-top: 5vh;
-      height: 400px;
-      background-color: rgb(226, 204, 176);
+      height: 450px;
+      background-color: rgb(199, 198, 197);
       border: 1px dotted #000;
 }
 
@@ -176,6 +176,34 @@
       height: 23px;
       background-color: white;
       border: 1px solid black;
+}
+
+.total-container {
+      margin-top: 40px;
+      width: 100%;
+      height: 30px;
+      justify-content: space-between;
+
+}
+
+.total-input {
+      border: 3px solid black;
+      background-color: rgb(247, 205, 205);
+}
+
+.total-container p {
+      margin-top: 3px;
+      margin-right: 2px;
+}
+.etc-container {
+      margin-top: 20px;
+}
+.etc-container {
+      font-size: 15px;
+}
+.etc-input {
+      width: 100%;
+      height: 90px;
 }
 
 
