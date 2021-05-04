@@ -170,11 +170,11 @@
           </div>
         </div>
 
-
-        <%= f.text_field :price, class:"total-input", id:"total-protein", :placeholder => "合計:タンパク質", :readonly => true %>
-        <%= f.text_field :price, class:"total-input", id:"total-fat", :placeholder => "合計:脂質", :readonly => true %>
-        <%= f.text_field :price, class:"total-input", id:"total-carbo", :placeholder => "合計:炭水化物", :readonly => true %>
-
+        <div class="total-container">
+          <%= f.text_field :price, class:"total-input", id:"total-protein", :placeholder => "合計:タンパク質", :readonly => true %><p>g</p>
+          <%= f.text_field :price, class:"total-input", id:"total-fat", :placeholder => "合計:脂質", :readonly => true %><p>g</p>
+          <%= f.text_field :price, class:"total-input", id:"total-carbo", :placeholder => "合計:炭水化物", :readonly => true %><p>g</p>
+        </div>
         
 
       </div>
