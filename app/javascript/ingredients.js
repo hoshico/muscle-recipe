@@ -75,8 +75,9 @@ const pfc = function () {
      const totalFatInput = document.getElementById("total-fat")
      totalFatInput.value = Math.floor( inputDairyValue * dataDairyNumF + inputVegeValue * dataVegeNumF + inputFishValue * dataFishNumF + inputValue * dataNumF)
       /* 炭水化物 */
+      const totalCarboInput = document.getElementById("total-carbo")
+     totalCarboInput.value = Math.floor( inputDairyValue * dataDairyNumC + inputVegeValue * dataVegeNumC + inputFishValue * dataFishNumC + inputValue * dataNumC)
       
-
    };
 
    /* お肉発動 */
