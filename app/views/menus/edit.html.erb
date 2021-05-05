@@ -10,9 +10,9 @@
 
       <div class="items-sell-main">
       <h2 class="items-sell-title">レシピ情報を入力</h2>
-      <%= form_with(model: @menu, local: true) do |f| %>
+      <%= form_with(model: @menu_food_stuff, local: true) do |f| %>
 
-      <%= render 'shared/error_messages', model: f.object %>
+      <%= render 'shared/error_messages', model: @menu_food_stuff %>
       
       <div class="img-upload">
             <div class="weight-bold-text">
