@@ -7,9 +7,11 @@ class MenusController < ApplicationController
 
   def new
     @menu = Menu.new
+    @menu_food_stuff = MenuFoodStuff.new
   end
 
   def create
+    @menu_food_stuff = MenuFoodStuff.new(menu_params)
     Menu.create(menu_params)
   end
 
@@ -34,7 +36,7 @@ class MenusController < ApplicationController
 
   private
   def menu_params
-    params.require(:menu).permit(:title, :image, :meet_id, :recipe).merge(user_id: current_user.id)
+    params.require(:menu).permit(:title, :image, :recipe, :meet_id, :meet_quantity, :fish_id, :fish_quantity, :vege_id, :vege_quantity, :dairy_id, :dairy_quantity, :etc_food, :total_p, :total_f, :total_c).merge(user_id: current_user.id, menu_id: params[:menu_id])
   end
 
   def set_menu
