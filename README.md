@@ -15,11 +15,11 @@
 
 ## menus テーブル
 
-| Column                 | Type          | Options           |
-| ---------------------- | ------------- | ----------------- |
-| title                  | string        | null: false       |
-| recipe                 | text          | null: false       |
-| user                   | references    | foreign_key: true |
+| Column                 | Type          | Options                        |
+| ---------------------- | ------------- | ------------------------------ |
+| title                  | string        | null: false                    |
+| recipe                 | text          | null: false                    |
+| user                   | references    | null: false, foreign_key: true |
 
 
 ### Association
@@ -42,18 +42,21 @@
 
 ## food_stuffs テーブル
 
-| Column           | Type          | Options           |
-| ---------------- | ------------- | ----------------- |
-| main1_name       | string        | null: false       | 
-| main1_quantity   | string        | null: false       |
-| main1_protein    | integer       | null: false       |
-| main2_name       | string        |                   | 
-| main2_quantity   | string        |                   |
-| main2_protein    | integer       |                   |
-| main3_name       | string        |                   | 
-| main3_quantity   | string        |                   |
-| main3_protein    | integer       |                   |
-| menu             | references    | foreign_key: true |
+| Column           | Type          | Options                        |
+| ---------------- | ------------- | ------------------------------ |
+| meet_id          | integer       |                                | 
+| meet_quantity    | integer       |                                |
+| fish_id          | integer       |                                |
+| fish_quantity    | integer       |                                | 
+| vege_id          | integer       |                                |
+| vege_quantity    | integer       |                                |
+| dairy_id         | integer       |                                | 
+| dairy_quantity   | integer       |                                |
+| total_p          | integer       |                                |
+| total_f          | integer       |                                |
+| total_c          | integer       |                                |
+| etc_food         | integer       | null: false                    |
+| menu_id          | references    | null: false, foreign_key: true |
 
 ### Association
 

@@ -7,7 +7,7 @@ class Menu < ApplicationRecord
 
   has_one_attached :image
   belongs_to :user
-  has_one :food_stuffs
+  has_one :food_stuffs, dependent: :destroy
 
   validates :meet_id, numericality: { other_than: 1 } 
   validates :fish_id, numericality: { other_than: 1 } 
