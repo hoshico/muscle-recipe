@@ -6,9 +6,9 @@
 
   <div class="menu-post-main">
     <h2 class="menus-sell-title">レシピ情報を入力</h2>
-    <%= form_with(model: @menu, local: true) do |f| %>
+    <%= form_with(model: @menu_food_stuff,  url: menus_path ,local: true) do |f| %>
 
-    <%= render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: @menu_food_stuff %>
     
     <div class="img-upload">
       <div class="weight-bold-text">
@@ -47,7 +47,7 @@
           <div class="quantity">
             <p>分量</p>
               <div class="quantity_sum">
-                <%= f.text_field :hoge, class:"quantity-input", id:"quan-input", placeholder:"例）150" %>
+                <%= f.text_field :meet_quantity, class:"quantity-input", id:"quan-input", placeholder:"例）150" %>
                 <div>g</div>
               </div>
           </div>
@@ -80,7 +80,7 @@
           <div class="quantity">
             <p>分量</p>
               <div class="quantity_sum">
-                <%= f.text_field :hoge, class:"quantity-input", id:"fish-quan-input", placeholder:"例）150" %>
+                <%= f.text_field :fish_quantity, class:"quantity-input", id:"fish-quan-input", placeholder:"例）150" %>
                 <div>g</div>
               </div>
           </div>
@@ -113,7 +113,7 @@
           <div class="quantity">
             <p>分量</p>
               <div class="quantity_sum">
-                <%= f.text_field :hoge, class:"quantity-input", id:"vege-quan-input", placeholder:"例）150" %>
+                <%= f.text_field :vege_quantity, class:"quantity-input", id:"vege-quan-input", placeholder:"例）150" %>
                 <div>g</div>
               </div>
           </div>
@@ -146,7 +146,7 @@
           <div class="quantity">
             <p>分量</p>
               <div class="quantity_sum">
-                <%= f.text_field :hoge, class:"quantity-input", id:"dairy-quan-input", placeholder:"例）150" %>
+                <%= f.text_field :dairy_quantity, class:"quantity-input", id:"dairy-quan-input", placeholder:"例）150" %>
                 <div>g</div>
               </div>
           </div>
@@ -171,14 +171,14 @@
         </div>
 
         <div class="total-container">
-          <%= f.text_field :protein, class:"total-input", id:"total-protein", :placeholder => "合計:タンパク質", :readonly => true %><p>g</p>
-          <%= f.text_field :fat, class:"total-input", id:"total-fat", :placeholder => "合計:脂質", :readonly => true %><p>g</p>
-          <%= f.text_field :carbo, class:"total-input", id:"total-carbo", :placeholder => "合計:炭水化物", :readonly => true %><p>g</p>
+          <%= f.text_field :total_p, class:"total-input", id:"total-protein", :placeholder => "合計:タンパク質", :readonly => true %><p>g</p>
+          <%= f.text_field :total_f, class:"total-input", id:"total-fat", :placeholder => "合計:脂質", :readonly => true %><p>g</p>
+          <%= f.text_field :total_c, class:"total-input", id:"total-carbo", :placeholder => "合計:炭水化物", :readonly => true %><p>g</p>
         </div>
 
         <div class="etc-container">
           <p>その他材料</p>
-          <%= f.text_area :etc, class:"etc-input", id:"etc", :placeholder => "◯◯: 150g \n△△: 3個 " %>
+          <%= f.text_area :etc_food, class:"etc-input", id:"etc", :placeholder => "◯◯: 150g \n△△: 3個 " %>
         </div>
         
 
