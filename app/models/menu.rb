@@ -7,6 +7,6 @@ class Menu < ApplicationRecord
 
   has_one_attached :image
   belongs_to :user
-  has_one :food_stuffs, dependent: :destroy
+  has_one :food_stuff, dependent: :destroy
 
 end

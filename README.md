@@ -24,7 +24,7 @@
 
 ### Association
 
-- has_one :food_stuffs
+- has_one :food_stuff
 - belongs_to :user
 
 ## favorites テーブル

@@ -1,17 +1,7 @@
 <%= render "shared/header" %>
-<div class="slide">
-</div>
+<div class="slide"></div>
 <div class="main_container">
-  <div class="left_wrapper">
-    <h1><span>newレシピ</span></h1>
-    <%= render partial: 'menu', collection: @menus %>
-  </div>
-  <div class="center_wrapper">
-      <h1><span>高タンパクレシピ</span></h1>
-    <%= render partial: 'menu', collection: @menus %>
-  </div>
-  <div class="right_wrapper">
-      <h1><span>人気レシピ</span></h1>
+  <div class="post-wrapper">
     <%= render partial: 'menu', collection: @menus %>
   </div>
 </div>

@@ -1,55 +1,200 @@
 <%= render "shared/header" %>
-<div class="main">
-  <div class="inner">
-    <div class="form__wrapper">
-      <h2 class="page-heading">レシピ編集</h2>
-      <div class="items-sell-contents">
+<div class="menu-post-contents">
   
-      <header class="items-sell-header">
-      </header>
+  <header class="items-sell-header">
+  </header>
 
-      <div class="items-sell-main">
-      <h2 class="items-sell-title">レシピ情報を入力</h2>
-      <%= form_with(model: @menu_food_stuff, local: true) do |f| %>
+  <div class="menu-post-main">
+    <h2 class="menus-sell-title">レシピ編集</h2>
+    <%= form_with(model: @menu_food_stuff,  url: menus_path ,local: true) do |f| %>
 
-      <%= render 'shared/error_messages', model: @menu_food_stuff %>
+    <%= render 'shared/error_messages', model: @menu_food_stuff %>
+    
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        料理イメージ
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+      <div id="image-list"></div>
+    </div>
+    
+    <div class="new-menus">
+      <div class="weight-bold-text">
+        料理名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"menus-text", id:"menu-name", placeholder:"料理名（必須 20文字まで)", maxlength:"20" %>
       
-      <div class="img-upload">
-            <div class="weight-bold-text">
-            料理イメージ
-            <span class="indispensable">必須</span>
-            </div>
-            <div class="click-upload">
-            <p>
-            クリックしてファイルをアップロード
-            </p>
-            <%= f.file_field :image, id:"item-image" %>
-            </div>
-            <div id="image-list"></div>
-      </div>
       
-      <div class="new-items">
-            <div class="weight-bold-text">
-            料理名
-            <span class="indispensable">必須</span>
+      <div class="menus-ingredients">
+        <div class="weight-bold-text">
+          メイン食材
+          <span class="indispensable">必須</span>
+        </div>
+
+        <div class="ingredients-container">
+          <div class="category_id">
+            <p>【肉類】</p>
+            <% meet_options = Meet.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
+            <%= f.select(:meet_id, meet_options, {}, {class:"#", data:{select:0}, id:"meet" }) %>
+          </div>
+          <div class="quantity">
+            <p>分量</p>
+              <div class="quantity_sum">
+                <%= f.text_field :meet_quantity, class:"quantity-input", id:"quan-input", placeholder:"例）150" %>
+                <div>g</div>
+              </div>
+          </div>
+          <div class="pfc-container">
+            <p>タンパク質</p>
+            <div class="pfc-window">
+              <span id="pro-content"></span>g
             </div>
-            <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"料理名（必須 20文字まで)", maxlength:"20" %>
-            <div class="items-explain">
-            <div class="weight-bold-text">
-            料理の説明
-            <span class="indispensable">必須</span>
+          </div>
+          <div class="pfc-container">
+            <p>脂質</p>
+            <div class="pfc-window">
+              <span id="fat-content"></span><div>g</div>
             </div>
-            <%= f.text_area :recipe, class:"items-text", id:"item-info", placeholder:"作り方(必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+          </div>
+          <div class="pfc-container">
+            <p>炭水化物</p>
+            <div class="pfc-window">
+              <span id="carbo-content"></span>g
             </div>
+          </div>
+        </div>
+
+        <div class="ingredients-container">
+          <div class="category_id">
+            <p>【魚】</p>
+            <% fish_options = Fish.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
+            <%= f.select(:fish_id, fish_options, {}, {class:"#", data:{select:0}, id:"fish" }) %>
+          </div>
+          <div class="quantity">
+            <p>分量</p>
+              <div class="quantity_sum">
+                <%= f.text_field :fish_quantity, class:"quantity-input", id:"fish-quan-input", placeholder:"例）150" %>
+                <div>g</div>
+              </div>
+          </div>
+          <div class="pfc-container">
+            <p>タンパク質</p>
+            <div class="pfc-window">
+              <span id="fish-pro-content"></span>g
+            </div>
+          </div>
+          <div class="pfc-container">
+            <p>脂質</p>
+            <div class="pfc-window">
+              <span id="fish-fat-content"></span><div>g</div>
+            </div>
+          </div>
+          <div class="pfc-container">
+            <p>炭水化物</p>
+            <div class="pfc-window">
+              <span id="fish-carbo-content"></span>g
+            </div>
+          </div>
+        </div>
+
+        <div class="ingredients-container">
+          <div class="category_id">
+            <p>【野菜】</p>
+            <% vege_options = Vege.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
+            <%= f.select(:vege_id, vege_options, {}, {class:"#", data:{select:0}, id:"vege" }) %>
+          </div>
+          <div class="quantity">
+            <p>分量</p>
+              <div class="quantity_sum">
+                <%= f.text_field :vege_quantity, class:"quantity-input", id:"vege-quan-input", placeholder:"例）150" %>
+                <div>g</div>
+              </div>
+          </div>
+          <div class="pfc-container">
+            <p>タンパク質</p>
+            <div class="pfc-window">
+              <span id="vege-pro-content"></span>g
+            </div>
+          </div>
+          <div class="pfc-container">
+            <p>脂質</p>
+            <div class="pfc-window">
+              <span id="vege-fat-content"></span><div>g</div>
+            </div>
+          </div>
+          <div class="pfc-container">
+            <p>炭水化物</p>
+            <div class="pfc-window">
+              <span id="vege-carbo-content"></span>g
+            </div>
+          </div>
+        </div>
+
+        <div class="ingredients-container">
+          <div class="category_id">
+            <p>【乳製品・卵】</p>
+            <% dairy_options = Dairy.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
+            <%= f.select(:dairy_id, dairy_options, {}, {class:"#", data:{select:0}, id:"dairy" }) %>
+          </div>
+          <div class="quantity">
+            <p>分量</p>
+              <div class="quantity_sum">
+                <%= f.text_field :dairy_quantity, class:"quantity-input", id:"dairy-quan-input", placeholder:"例）150" %>
+                <div>g</div>
+              </div>
+          </div>
+          <div class="pfc-container">
+            <p>タンパク質</p>
+            <div class="pfc-window">
+              <span id="dairy-pro-content"></span>g
+            </div>
+          </div>
+          <div class="pfc-container">
+            <p>脂質</p>
+            <div class="pfc-window">
+              <span id="dairy-fat-content"></span><div>g</div>
+            </div>
+          </div>
+          <div class="pfc-container">
+            <p>炭水化物</p>
+            <div class="pfc-window">
+              <span id="dairy-carbo-content"></span>g
+            </div>
+          </div>
+        </div>
+
+        <div class="total-container">
+          <%= f.text_field :total_p, class:"total-input", id:"total-protein", :placeholder => "合計:タンパク質", :readonly => true %><p>g</p>
+          <%= f.text_field :total_f, class:"total-input", id:"total-fat", :placeholder => "合計:脂質", :readonly => true %><p>g</p>
+          <%= f.text_field :total_c, class:"total-input", id:"total-carbo", :placeholder => "合計:炭水化物", :readonly => true %><p>g</p>
+        </div>
+
+        <div class="etc-container">
+          <p>その他材料</p>
+          <%= f.text_area :etc_food, class:"etc-input", id:"etc", :placeholder => "◯◯: 150g \n△△: 3個 " %>
+        </div>
+        
+
       </div>
-            
-      <div class="post-btn-contents">
-            <%= f.submit "投稿する" ,class:"post-btn" %>
-            <%=link_to 'もどる', root_path, class:"back-btn" %>
-      </div>
-      </div>
-      <% end %>
+      <div class="menus-explain">
+        <div class="weight-bold-text">
+          料理の作り方
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :recipe, class:"menus-text", id:"item-info", placeholder:"(※必須 1000文字まで)\n1.~~~~\n2.~~~~" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
+    <div class="post-btn-contents">
+      <%= f.submit "投稿する" ,class:"post-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
   </div>
+  <% end %>
 </div>
