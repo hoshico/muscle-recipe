@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  # before_action :set_menu, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
     @menus = Menu.all.order("created_at DESC")
@@ -19,22 +19,27 @@ class MenusController < ApplicationController
   end
 
   def show
+    @menu = Menu.find(params[:id]) 
+    @food_stuff = FoodStuff.find_by(menu_id: @menu.id)
   end
 
-  def edit
-    @menu_food_stuff = MenuFoodStuff.find(params[:menu_id])
-  end
+  # def edit
+  #   @menu = Menu.find(params[:id]) 
+  #   @food_stuff = FoodStuff.find_by(menu_id: @menu.id)
+  #   @menu_food_stuff = MenuFoodStuff.find(params[:id])
+  # end
 
-  def update
-    if @menu_food_stuff.update(menu_params)
-      redirect_to menu_path(@menu.id)
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   if @menu_food_stuff.update(menu_params)
+  #     redirect_to menu_path(@menu.id)
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   def destroy
-    @menu_food_stuff.destroy
+    @menu = Menu.find(params[:id])
+    @menu.destroy
     redirect_to root_path
   end
 
@@ -43,7 +48,7 @@ class MenusController < ApplicationController
     params.require(:menu_food_stuff).permit(:title, :image, :recipe, :meet_id, :meet_quantity, :fish_id, :fish_quantity, :vege_id, :vege_quantity, :dairy_id, :dairy_quantity, :etc_food, :total_p, :total_f, :total_c).merge(user_id: current_user.id)
   end
 
-  def load_menu
-    @menu = Menu.find(params[:id])
-  end
+  # def load_menu
+  #   @menu = current_user.menu.find(params[:id])
+  # end
 end

@@ -8,13 +8,23 @@
       <%= link_to "by #{@menu.user.nickname}", root_path, class: :menu_user %>
       <% if current_user.id == @menu.user_id %>
         <div class="menu__manage">
-          <%= link_to "編集する", edit_menu_path(@menu.id), class: :menu__btn %>
+          <%# <%= link_to "編集する", edit_menu_path(@menu.id), class: :menu__btn %>
           <%= link_to "削除する", menu_path(@menu.id), method: :delete, class: :menu__btn %>
         </div>
       <% end %>
       <div class="menu__image">
         <%= image_tag @menu.image %>
       </div>
+      <div>
+      <p>メイン食材</p>
+      <%= Meet.find_by(id: @food_stuff.meet_id).name %><%= @food_stuff.meet_quantity%>
+      </div>
+
+      <div>食材(その他)<div>
+
+      <div>PFCメーター</div>
+
+
       <div class="menu__body">
         <div class="menu__detail">
           <p class="detail__title">作り方</p>
