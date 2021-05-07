@@ -8,6 +8,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../ingredients")
+require('../preview')
 
 import "chartkick/chart.js"
 

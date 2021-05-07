@@ -222,7 +222,10 @@ padding: 5vh 0;
 }
 
 
-
+.image-list{
+   width: 100%;
+   height: auto;
+}
 
 
 
