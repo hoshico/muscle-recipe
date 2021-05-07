@@ -8,7 +8,7 @@
         <div class="menu_image">
           <h2 class="menu-hedding">
             <%= @menu.title %>
-            <%= link_to "by #{@menu.user.nickname}", root_path, class: :menu_user %>
+            <%= link_to "by #{@menu.user.nickname}", user_path(@menu.user_id), class: :menu_user %>
           </h2>
           <%= image_tag(@menu.image, class: "show_img") %>
         </div>

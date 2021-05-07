@@ -1,7 +1,8 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
-  <%# <div class="title">マッスルレシピ</div> %>
-  <%= link_to image_tag("logo.png", :size => '264x54' ,class:"logo-icon"), "/" %>
+  <div class="header-left">
+    <%= link_to image_tag("logo.png", :size => '264x52' ,class:"logo-icon"), "/" %>
+  </div>
   <div class="header-right">
     <ul class='lists'>
       <% if user_signed_in? %>
@@ -12,5 +13,10 @@
         <li><%= link_to '新規登録', new_user_registration_path, class: "header-btn" %></li>
       <% end %>
     </ul>
+    <div class="post-btn-contents">
+      <%= link_to(new_menu_path, class: 'post-btn') do %>
+       <span class='post-btn-text'>レシピを投稿する</span>
+      <% end %>
+    </div>
   </div>
 </header>
