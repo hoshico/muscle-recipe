@@ -1,59 +1,78 @@
 <%= render "shared/header" %>
-<main class="main">
-  <div class="inner">
-    <div class="menu__wrapper">
-      <p class="menu__hedding">
-        <%= @menu.title %>
-      </p>
-      <%= link_to "by #{@menu.user.nickname}", root_path, class: :menu_user %>
-      <% if current_user.id == @menu.user_id %>
-        <div class="menu__manage">
-          <%# <%= link_to "編集する", edit_menu_path(@menu.id), class: :menu__btn %>
-          <%= link_to "削除する", menu_path(@menu.id), method: :delete, class: :menu__btn %>
+
+<main class="main-wrapper">
+  <div class="main-inner">
+    <div class="menu-rapper">
+
+      <div class="pic-content">
+        <div class="menu_image">
+          <h2 class="menu-hedding">
+            <%= @menu.title %>
+            <%= link_to "by #{@menu.user.nickname}", root_path, class: :menu_user %>
+          </h2>
+          <%= image_tag(@menu.image, class: "show_img") %>
         </div>
-      <% end %>
-      <div class="menu__image">
-        <%= image_tag @menu.image %>
-      </div>
-      <div>
-      <p>メイン食材</p>
-      <%= Meet.find_by(id: @food_stuff.meet_id).name %><%= @food_stuff.meet_quantity%>
+        <div class="pfc-content">
+          <h2 class="pfc-title">[PFCグラフ]</h2>
+          <p class="attention">※ メイン食材を元に算出</p>
+          <%= pie_chart @pfc_chart, width: "320px", height: "320px", colors: ["red", "orange", "blue"] %>
+        </div>  
       </div>
 
-      <div>食材(その他)<div>
-
-      <div>PFCメーター</div>
-
-
-      <div class="menu__body">
-        <div class="menu__detail">
-          <p class="detail__title">作り方</p>
-          <p class="detail__message">
-            <%= @menu.recipe %>
-          </p>
+      <div class="info-wrapper">
+        <div class="foodstuff-content">
+          <div><span>【メイン食材】</span>
+            <%# <% if (@food_stuff.meet_id = 1 && @food_stuff.fish_id = 1 && @food_stuff.vege_id = 1 && @food_stuff.dairy_id = 1) %>
+               <%# <div class="attention">食材(その他)を参照</div>   %>
+             <%# <% else %>  
+              <% if @food_stuff.meet_id && @food_stuff.meet_quantity%>  
+                <div>
+                  <%= Meet.find_by(id: @food_stuff.meet_id).name %><%= @food_stuff.meet_quantity %><span>g</span>
+                </div>
+              <% end %>
+              <% if @food_stuff.fish_id && @food_stuff.fish_quantity%>
+                <div>
+                  <%= Fish.find_by(id: @food_stuff.fish_id).name %><%= @food_stuff.fish_quantity %><span>g</span>
+                </div>
+              <% end %>
+              <% if @food_stuff.vege_id && @food_stuff.vege_quantity%>
+                <div>
+                  <%= Vege.find_by(id: @food_stuff.vege_id).name %><%= @food_stuff.vege_quantity %><span>g</span>
+                </div>
+              <% end %>
+              <% if @food_stuff.dairy_id && @food_stuff.dairy_quantity%>
+                <div>
+                  <%= Dairy.find_by(id: @food_stuff.dairy_id).name %><%= @food_stuff.dairy_quantity %><span>g</span>
+                </div>
+              <% end %>
+            <%# <% end %> 
+          </div>
+          
         </div>
-      </div>
-      <div class="prototype__comments">
-        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
-          <%# <%= form_with model: モデル名,local: true do |f|%>
-            <div class="field">
-              <%# <%= f.label :hoge, "コメント" %><br />
-              <%# <%= f.text_field :hoge, id:"comment_text" %>
+        <div class="etc-info">
+          <P>【食材(その他)】</P>
+          <%= @food_stuff.etc_food%>
+        </div>
+        <div class="info-contetn">
+          <div class="menu__detail">
+            <p class="detail__title">【作り方】</p>
+            <p class="detail__message">
+              <%= @menu.recipe %>
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <% if user_signed_in? && current_user.id == @menu.user_id %>
+            <div class="menu__manage">
+              <%# <%= link_to "編集する", edit_menu_path(@menu.id), class: :menu__btn %>
+              <%= link_to "このレシピを削除する", menu_path(@menu.id), method: :delete, class: :menu__btn %>
             </div>
-            <div class="actions">
-              <%# <%= f.submit "送信する", class: :form__btn  %>
-            </div>
-          <%# <% end %> 
-        <%# // ログインしているユーザーには上記を表示する %>
-        <ul class="comments_lists">
-          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
-            <li class="comments_list">
-              <%# <%= " コメントのテキスト "%>
-              <%# <%= link_to "（ ユーザー名 ）", root_path, class: :comment_user %>
-            </li>
-          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
-        </ul>
+          <% end %>
+        </div>
+
       </div>
+
     </div>
   </div>
 </main>

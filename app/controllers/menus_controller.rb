@@ -21,6 +21,10 @@ class MenusController < ApplicationController
   def show
     @menu = Menu.find(params[:id]) 
     @food_stuff = FoodStuff.find_by(menu_id: @menu.id)
+    protein = @food_stuff.total_p
+    fat = @food_stuff.total_f
+    carbo = @food_stuff.total_c
+    @pfc_chart = {'タンパク質' => protein, '脂質' => fat, '炭水化物' => carbo }
   end
 
   # def edit
