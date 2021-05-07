@@ -5,15 +5,23 @@
       <h2 class="page-heading">
         <%= "#{@user.nickname}のキッチン"%>
       </h2>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th class="table__col1">名前</th>
-            <td class="table__col2"><%= @user.nickname %></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 class="page-heading">
+      <div class="prof">
+        <div>
+          <div class="pic">写真</div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th class="table__col1">名前</th>
+                <td class="table__col2"><%= @user.nickname %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="my-chart">
+          グラフ
+        </div>
+      </div>
+      <h2 class="recipes">
         <%= "#{@user.nickname}さんのレシピ"%>
       </h2>
       <div class="user__card">
@@ -23,3 +31,4 @@
     </div>
   </div>
 </div>
+<%= render "shared/footer" %>
