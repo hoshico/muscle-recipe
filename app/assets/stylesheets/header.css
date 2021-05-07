@@ -46,7 +46,7 @@ li a {
   background-color: rgb(166, 240, 166);
   border-left: 1px solid rgb(124, 190, 124);
   border-bottom: 1px solid rgb(124, 190, 124);
-  border-right: 1px solid rgb(252, 253, 252);
+  border-right: 1px solid rgb(233, 252, 233);
 }
 
 .header-btn:hover {
@@ -55,7 +55,9 @@ li a {
 }
 .post-btn-contents {
   background-color: rgb(166, 240, 166);
+  text-decoration: none;
 }
 .post-btn-text {
+  
   width: 100%;
 }
