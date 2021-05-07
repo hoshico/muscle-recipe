@@ -20,7 +20,7 @@
 }
 .pfc-title {
       font-size: 20px;
-      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-family:'Times New Roman', Times, serif;
 }
 .pfc-content {
       margin-top: 30px;
@@ -41,6 +41,9 @@
       height: 400px;   
 }
 
+.menu_user {
+      text-decoration: none;
+}
 .show_img {
       width: 100%;
       height: 100%;
