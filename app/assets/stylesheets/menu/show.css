@@ -1,0 +1,61 @@
+.main-wrapper {
+      background-color: rgb(238, 232, 232);
+}
+
+.main-inner {
+      background-color: white;
+      width: 90%;
+      height:600px;
+      margin: 0 auto;
+}
+.menu-hedding {
+      width: 450px;
+      height: 30px;
+      font-size: 20px;
+}
+.pic-content {
+      display: flex;
+      justify-content: space-around;
+
+}
+.pfc-title {
+      font-size: 20px;
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.pfc-content {
+      margin-top: 30px;
+      text-align: center;
+}
+
+.info-wrapper {
+      margin: 30px 0 0 70px;
+      display: flex;
+}
+
+.attention {
+      color: gray;
+      font-size: 12px;
+}
+.menu_image {
+      width: 450px;
+      height: 400px;   
+}
+
+.show_img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+}
+
+.foodstuff-content {
+      display: flex;
+      margin-right: 20px;
+}
+
+.menu__detail {
+      margin-left: 180px;
+}
+
+.menu__manage {
+      margin:140px 0 0 100px;
+}
