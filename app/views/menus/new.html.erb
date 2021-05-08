@@ -20,8 +20,9 @@
           クリックしてファイルをアップロード
         </p>
         <%= f.file_field :image, id:"item-image" %>
+        <div class="image-list" id="image-list" ></div>
       </div>
-      <div id="image-list"></div>
+      
     </div>
     
     <div class="new-menus">
@@ -190,11 +191,13 @@
         </div>
         <%= f.text_area :recipe, class:"menus-text", id:"item-info", placeholder:"(※必須 1000文字まで)\n1.~~~~\n2.~~~~" ,rows:"7" ,maxlength:"1000" %>
       </div>
-    </div>
-    <div class="post-btn-contents">
-      <%= f.submit "投稿する" ,class:"post-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+
+      <div class="post-btn">
+        <%= f.submit "投稿する" ,class:"post-new-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
     </div>
   </div>
   <% end %>
 </div>
+<%= render "shared/footer" %>

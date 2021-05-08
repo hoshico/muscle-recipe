@@ -5,21 +5,34 @@
       <h2 class="page-heading">
         <%= "#{@user.nickname}のキッチン"%>
       </h2>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th class="table__col1">名前</th>
-            <td class="table__col2"><%= @user.nickname %></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 class="page-heading">
+      <div class="prof">
+        <div>
+          <div class="pic">写真</div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th class="table__col1">名前</th>
+                <td class="table__col2"><%= @user.nickname %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="my-chart">
+          <p>グラフ</p>
+          <%= pie_chart @mypfc_chart, width: "320px", height: "320px", colors: ["red", "orange", "blue"] %>
+        </div>
+      </div>
+      <h2 class="recipes">
         <%= "#{@user.nickname}さんのレシピ"%>
       </h2>
-      <div class="user__card">
-        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
-        <%#= render partial: 'prototypes/prototype', collection: @prototypes %>
+      
+      <div class="user_card_collection">
+        <div class="user_card"> 
+          <%= render partial: 'shared/menu', collection: @menus %> 
+        </div>
       </div>
+
     </div>
   </div>
 </div>
+<%= render "shared/footer" %>

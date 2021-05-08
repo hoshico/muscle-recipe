@@ -14,38 +14,43 @@
         </div>
         <div class="pfc-content">
           <h2 class="pfc-title">[PFCグラフ]</h2>
-          <p class="attention">※ メイン食材を元に算出</p>
-          <%= pie_chart @pfc_chart, width: "320px", height: "320px", colors: ["red", "orange", "blue"] %>
+          
+          <% if @food_stuff.meet_id == 1 && @food_stuff.fish_id == 1 && @food_stuff.vege_id == 1 && @food_stuff.dairy_id == 1 %>
+            <div class="attention">メイン食材が登録されていません</div>
+          <% else %>
+            <p class="attention">※ メイン食材を元に算出</p>
+            <%= pie_chart @pfc_chart, width: "320px", height: "320px", colors: ["red", "orange", "blue"] %>
+          <% end %>
         </div>  
       </div>
 
       <div class="info-wrapper">
         <div class="foodstuff-content">
           <div><span>【メイン食材】</span>
-            <%# <% if (@food_stuff.meet_id = 1 && @food_stuff.fish_id = 1 && @food_stuff.vege_id = 1 && @food_stuff.dairy_id = 1) %>
-               <%# <div class="attention">食材(その他)を参照</div>   %>
-             <%# <% else %>  
+            <% if @food_stuff.meet_id == 1 && @food_stuff.fish_id == 1 && @food_stuff.vege_id == 1 && @food_stuff.dairy_id == 1 %>
+               <div class="attention">食材(その他)を参照</div>   
+            <% else %>  
               <% if @food_stuff.meet_id && @food_stuff.meet_quantity%>  
                 <div>
-                  <%= Meet.find_by(id: @food_stuff.meet_id).name %><%= @food_stuff.meet_quantity %><span>g</span>
+                  <%= Meet.find_by(id: @food_stuff.meet_id).name %><span><%= @food_stuff.meet_quantity %>g</span>
                 </div>
               <% end %>
               <% if @food_stuff.fish_id && @food_stuff.fish_quantity%>
                 <div>
-                  <%= Fish.find_by(id: @food_stuff.fish_id).name %><%= @food_stuff.fish_quantity %><span>g</span>
+                  <%= Fish.find_by(id: @food_stuff.fish_id).name %><span><%= @food_stuff.fish_quantity %>g</span>
                 </div>
               <% end %>
               <% if @food_stuff.vege_id && @food_stuff.vege_quantity%>
                 <div>
-                  <%= Vege.find_by(id: @food_stuff.vege_id).name %><%= @food_stuff.vege_quantity %><span>g</span>
+                  <%= Vege.find_by(id: @food_stuff.vege_id).name %><span><%= @food_stuff.vege_quantity %>g</span>
                 </div>
               <% end %>
               <% if @food_stuff.dairy_id && @food_stuff.dairy_quantity%>
                 <div>
-                  <%= Dairy.find_by(id: @food_stuff.dairy_id).name %><%= @food_stuff.dairy_quantity %><span>g</span>
+                  <%= Dairy.find_by(id: @food_stuff.dairy_id).name %><span><%= @food_stuff.dairy_quantity %>g</span>
                 </div>
               <% end %>
-            <%# <% end %> 
+            <% end %> 
           </div>
           
         </div>
@@ -76,3 +81,4 @@
     </div>
   </div>
 </main>
+<%= render "shared/footer" %>
