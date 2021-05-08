@@ -4,7 +4,6 @@
 .inner {
   background-color: white;
   width:95vw;
-  height: 100vh;
   margin: 0 auto;
   box-shadow: 0 0 8px;
 }
@@ -40,4 +39,17 @@
 
 .recipes {
    text-align: center;
+   font-size: 20px;
+}
+
+.user_card_collection {
+   width: 95%;
+   margin: 2vh auto;
+}
+
+.user_card {
+   width: 95vw;
+   margin: 0 auto;
+   display: flex;
+   flex-wrap: wrap;
 }

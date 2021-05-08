@@ -1,16 +1,23 @@
 .top-page-header {
   background: rgb(166, 240, 166);
   height: 52px;
-  padding: 0 0 0 40px;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgb(124, 190, 124);
 }
+.header-left {
+   width: 70vw;
+   background-color: rgb(166, 240, 166);
+   border-right: 1px solid rgb(233, 252, 233);
+   border-bottom: rgb(124, 190, 124);;
+}
+.header-logo {
+   margin-left: 5vw;
+}
 
 .header-right {
   display: flex;
-  width: 30%;
-  margin: 0 0 0 auto;
+  width: 30vw;
 }
 
 .lists {

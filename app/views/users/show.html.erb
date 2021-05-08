@@ -18,16 +18,20 @@
           </table>
         </div>
         <div class="my-chart">
-          グラフ
+          <p>グラフ</p>
+          <%= pie_chart @mypfc_chart, width: "320px", height: "320px", colors: ["red", "orange", "blue"] %>
         </div>
       </div>
       <h2 class="recipes">
         <%= "#{@user.nickname}さんのレシピ"%>
       </h2>
-      <div class="user__card">
-        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
-        <%#= render partial: 'prototypes/prototype', collection: @prototypes %>
+      
+      <div class="user_card_collection">
+        <div class="user_card"> 
+          <%= render partial: 'shared/menu', collection: @menus %> 
+        </div>
       </div>
+
     </div>
   </div>
 </div>
