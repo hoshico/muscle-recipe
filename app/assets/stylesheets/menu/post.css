@@ -93,8 +93,17 @@
 .menus-ingredients {
       margin-top: 5vh;
       height: 450px;
-      background-color: rgb(255, 215, 175);
-      border: 1px dotted #000;
+      background-color: rgb(201, 195, 192);
+      box-shadow: 0 0 4px;
+}
+
+tr th {
+      justify-content: space-around;
+      padding-right: 2px;
+}
+
+.table-text {
+      text-align: center;
 }
 
 .ingredients-text {
