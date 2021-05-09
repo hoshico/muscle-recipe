@@ -13,10 +13,14 @@ div {
   margin: 0;
   padding: 0;
 }
-
+html  {
+  height: 100%;
+}
 body {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
   color: #3b4043;
+  height: 100%;
+  
 }
 
 li {
