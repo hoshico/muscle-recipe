@@ -8,5 +8,11 @@ class Menu < ApplicationRecord
   has_one_attached :image
   belongs_to :user
   has_one :food_stuff, dependent: :destroy
+  accepts_nested_attributes_for :food_stuff
 
+  with_options presence: true do
+    validates :image, :user_id
+    validates :title, length: { maximum: 20 }
+    validates :recipe, length: { maximum: 100 }
+  end
 end
