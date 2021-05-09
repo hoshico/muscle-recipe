@@ -2,9 +2,9 @@
 <div class="menu-post-contents">
   <div class="menu-post-main">
     <h2 class="menus-sell-title">レシピ情報を入力</h2>
-    <%= form_with(model: @menu_food_stuff,  url: menus_path ,local: true) do |f| %>
+    <%= form_for(@menu) do |f| %>
 
-    <%= render 'shared/error_messages', model: @menu_food_stuff %>
+    <%= render 'shared/error_messages', model: @menu %>
     
     <div class="img-upload">
       <div class="weight-bold-text">
@@ -33,81 +33,82 @@
         <div class="weight-bold-text">
           メイン食材(タンパク質/脂質/炭水化物は自動計算)
         </div>
-        
-        <table>
-          <tr>
-            <th>【肉類】</th>
-            <th>分量</th>
-            <th class="table-text">タンパク質</th>
-            <th class="table-text">脂質</th>
-            <th class="table-text">炭水化物</th>
-          </tr>
-          <tr>
-            <th><div class="category_id"><% meet_options = Meet.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
-            <%= f.select(:meet_id, meet_options, {}, {class:"#", data:{select:0}, id:"meet" }) %></div></th>
-            <th><div class="quantity_sum"><%= f.text_field :meet_quantity, class:"quantity-input", id:"quan-input", placeholder:"例）150" %><div>g</div></div></th>
-            <th><div class="pfc-window"><span id="pro-content"></span>g</div></th>
-            <th><div class="pfc-window"><span id="fat-content"></span>g</div></th>
-            <th><div class="pfc-window"><span id="carbo-content"></span>g</div></th>
-          </tr>
-          <tr>
-            <th>【魚】</th>
-            <th>分量</th>
-            <th class="table-text">タンパク質</th>
-            <th class="table-text">脂質</th>
-            <th class="table-text">炭水化物</th>
-          </tr>
-          <tr>
-            <th><div class="category_id"><% fish_options = Fish.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
-            <%= f.select(:fish_id, fish_options, {}, {class:"#", data:{select:0}, id:"fish" }) %></div></th>
-            <th><div class="quantity_sum"><%= f.text_field :fish_quantity, class:"quantity-input", id:"fish-quan-input", placeholder:"例）150" %><div>g</div></div></th>
-            <th><div class="pfc-window"><span id="fish-pro-content"></span>g</div></th>
-            <th><div class="pfc-window"><span id="fish-fat-content"></span>g</div></th>
-            <th><div class="pfc-window"><span id="fish-carbo-content"></span>g</div></th>
-          </tr>
-          <tr>
-            <th>【野菜・豆】</th>
-            <th>分量</th>
-            <th class="table-text">タンパク質</th>
-            <th class="table-text">脂質</th>
-            <th class="table-text">炭水化物</th>
-          </tr>
-          <tr>
-            <th><div class="category_id"><% vege_options = Vege.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
-            <%= f.select(:vege_id, vege_options, {}, {class:"#", data:{select:0}, id:"vege" }) %></div></th>
-            <th><div class="quantity_sum"><%= f.text_field :vege_quantity, class:"quantity-input", id:"vege-quan-input", placeholder:"例）150" %><div>g</div></div></th>
-            <th><div class="pfc-window"><span id="vege-pro-content"></span>g</div></th>
-            <th><div class="pfc-window"><span id="vege-fat-content"></span>g</div></th>
-            <th><div class="pfc-window"><span id="vege-carbo-content"></span>g</div></th>
-          </tr>
-          <tr>
-            <th>【乳製品】</th>
-            <th>分量</th>
-            <th class="table-text">タンパク質</th>
-            <th class="table-text">脂質</th>
-            <th class="table-text">炭水化物</th>
-          </tr>
-          <tr>
-            <th><div class="category_id"><% dairy_options = Dairy.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
-            <%= f.select(:dairy_id, dairy_options, {}, {class:"#", data:{select:0}, id:"dairy" }) %></div></th>
-            <th><div class="quantity_sum"><%= f.text_field :dairy_quantity, class:"quantity-input", id:"dairy-quan-input", placeholder:"例）150" %><div>g</div></div></th>
-            <th><div class="pfc-window"><span id="dairy-pro-content"></span>g</div></th>
-            <th><div class="pfc-window"><span id="dairy-fat-content"></span>g</div></th>
-            <th><div class="pfc-window"><span id="dairy-carbo-content"></span>g</div></th>
-          </tr>
-        </table>
+        <%= f.fields_for :food_stuff do |b|%>
+          <table>
+            <tr>
+              <th>【肉類】</th>
+              <th>分量</th>
+              <th class="table-text">タンパク質</th>
+              <th class="table-text">脂質</th>
+              <th class="table-text">炭水化物</th>
+            </tr>
+            <tr>
+              <th><div class="category_id"><% meet_options = Meet.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
+              <%= b.select(:meet_id, meet_options, {}, {class:"#", data:{select:0}, id:"meet" }) %></div></th>
+              <th><div class="quantity_sum"><%= b.text_field :meet_quantity, class:"quantity-input", id:"quan-input", placeholder:"例）150" %><div>g</div></div></th>
+              <th><div class="pfc-window"><span id="pro-content"></span>g</div></th>
+              <th><div class="pfc-window"><span id="fat-content"></span>g</div></th>
+              <th><div class="pfc-window"><span id="carbo-content"></span>g</div></th>
+            </tr>
+            <tr>
+              <th>【魚】</th>
+              <th>分量</th>
+              <th class="table-text">タンパク質</th>
+              <th class="table-text">脂質</th>
+              <th class="table-text">炭水化物</th>
+            </tr>
+            <tr>
+              <th><div class="category_id"><% fish_options = Fish.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
+              <%= b.select(:fish_id, fish_options, {}, {class:"#", data:{select:0}, id:"fish" }) %></div></th>
+              <th><div class="quantity_sum"><%= b.text_field :fish_quantity, class:"quantity-input", id:"fish-quan-input", placeholder:"例）150" %><div>g</div></div></th>
+              <th><div class="pfc-window"><span id="fish-pro-content"></span>g</div></th>
+              <th><div class="pfc-window"><span id="fish-fat-content"></span>g</div></th>
+              <th><div class="pfc-window"><span id="fish-carbo-content"></span>g</div></th>
+            </tr>
+            <tr>
+              <th>【野菜・豆】</th>
+              <th>分量</th>
+              <th class="table-text">タンパク質</th>
+              <th class="table-text">脂質</th>
+              <th class="table-text">炭水化物</th>
+            </tr>
+            <tr>
+              <th><div class="category_id"><% vege_options = Vege.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
+              <%= b.select(:vege_id, vege_options, {}, {class:"#", data:{select:0}, id:"vege" }) %></div></th>
+              <th><div class="quantity_sum"><%= b.text_field :vege_quantity, class:"quantity-input", id:"vege-quan-input", placeholder:"例）150" %><div>g</div></div></th>
+              <th><div class="pfc-window"><span id="vege-pro-content"></span>g</div></th>
+              <th><div class="pfc-window"><span id="vege-fat-content"></span>g</div></th>
+              <th><div class="pfc-window"><span id="vege-carbo-content"></span>g</div></th>
+            </tr>
+            <tr>
+              <th>【乳製品】</th>
+              <th>分量</th>
+              <th class="table-text">タンパク質</th>
+              <th class="table-text">脂質</th>
+              <th class="table-text">炭水化物</th>
+            </tr>
+            <tr>
+              <th><div class="category_id"><% dairy_options = Dairy.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
+              <%= b.select(:dairy_id, dairy_options, {}, {class:"#", data:{select:0}, id:"dairy" }) %></div></th>
+              <th><div class="quantity_sum"><%= b.text_field :dairy_quantity, class:"quantity-input", id:"dairy-quan-input", placeholder:"例）150" %><div>g</div></div></th>
+              <th><div class="pfc-window"><span id="dairy-pro-content"></span>g</div></th>
+              <th><div class="pfc-window"><span id="dairy-fat-content"></span>g</div></th>
+              <th><div class="pfc-window"><span id="dairy-carbo-content"></span>g</div></th>
+            </tr>
+          </table>
+          
+          <div class="total-container">
+            <%= b.text_field :total_p, class:"total-input", id:"total-protein", :placeholder => "合計:タンパク質", :readonly => true %><p>g</p>
+            <%= b.text_field :total_f, class:"total-input", id:"total-fat", :placeholder => "合計:脂質", :readonly => true %><p>g</p>
+            <%= b.text_field :total_c, class:"total-input", id:"total-carbo", :placeholder => "合計:炭水化物", :readonly => true %><p>g</p>
+          </div>
 
-        <div class="total-container">
-          <%= f.text_field :total_p, class:"total-input", id:"total-protein", :placeholder => "合計:タンパク質", :readonly => true %><p>g</p>
-          <%= f.text_field :total_f, class:"total-input", id:"total-fat", :placeholder => "合計:脂質", :readonly => true %><p>g</p>
-          <%= f.text_field :total_c, class:"total-input", id:"total-carbo", :placeholder => "合計:炭水化物", :readonly => true %><p>g</p>
-        </div>
-
-        <div class="etc-container">
-          <p>その他材料</p>
-          <span class="indispensable">必須</span>
-          <%= f.text_area :etc_food, class:"etc-input", id:"etc", :placeholder => "例)\n◯◯: 150g \n△△: 3個 " %>
-        </div>
+          <div class="etc-container">
+            <p>その他材料</p>
+            <span class="indispensable">必須</span>
+            <%= b.text_area :etc_food, class:"etc-input", id:"etc", :placeholder => "例)\n◯◯: 150g \n△△: 3個 " %>
+          </div>
+        <% end %>
         
 
       </div>

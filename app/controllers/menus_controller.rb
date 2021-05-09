@@ -6,13 +6,14 @@ class MenusController < ApplicationController
   end 
 
   def new
-    @menu_food_stuff = MenuFoodStuff.new
+    @menu = Menu.new
+    @menu.build_food_stuff
   end
 
   def create
-    @menu_food_stuff = MenuFoodStuff.new(menu_params)
-    if @menu_food_stuff.valid?
-      @menu_food_stuff.save
+    @menu = Menu.new(menu_params)
+    if @menu.valid?
+      @menu.save
     else
       render :new
     end
@@ -27,19 +28,18 @@ class MenusController < ApplicationController
     @pfc_chart = {'タンパク質' => protein, '脂質' => fat, '炭水化物' => carbo }
   end
 
-  # def edit
-  #   @menu = Menu.find(params[:id]) 
-  #   @food_stuff = FoodStuff.find_by(menu_id: @menu.id)
-  #   @menu_food_stuff = MenuFoodStuff.find(params[:id])
-  # end
+  def edit
+    @menu = Menu.find(params[:id]) 
+  end
 
-  # def update
-  #   if @menu_food_stuff.update(menu_params)
-  #     redirect_to menu_path(@menu.id)
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    @menu = Menu.find(params[:id]) 
+    if @menu.update(menu_params)
+      redirect_to menu_path(@menu.id)
+    else
+      render :edit
+    end
+  end
 
   def destroy
     @menu = Menu.find(params[:id])
@@ -49,7 +49,7 @@ class MenusController < ApplicationController
 
   private
   def menu_params
-    params.require(:menu_food_stuff).permit(:title, :image, :recipe, :meet_id, :meet_quantity, :fish_id, :fish_quantity, :vege_id, :vege_quantity, :dairy_id, :dairy_quantity, :etc_food, :total_p, :total_f, :total_c).merge(user_id: current_user.id)
+    params.require(:menu).permit(:title, :image, :recipe, food_stuff_attributes: [:meet_id, :meet_quantity, :fish_id, :fish_quantity, :vege_id, :vege_quantity, :dairy_id, :dairy_quantity, :etc_food, :total_p, :total_f, :total_c]).merge(user_id: current_user.id)
   end
 
   # def load_menu
