@@ -1,9 +1,5 @@
 <%= render "shared/header" %>
 <div class="menu-post-contents">
-  
-  <header class="items-sell-header">
-  </header>
-
   <div class="menu-post-main">
     <h2 class="menus-sell-title">レシピ情報を入力</h2>
     <%= form_with(model: @menu_food_stuff,  url: menus_path ,local: true) do |f| %>
@@ -79,7 +75,7 @@
           <tr>
             <th><div class="category_id"><% vege_options = Vege.order(:id).map { |c| [c.name, c.id, data: { protein: c.protein, fat: c.fat, carbo: c.carbo }] } %>
             <%= f.select(:vege_id, vege_options, {}, {class:"#", data:{select:0}, id:"vege" }) %></div></th>
-            <th><div class="quantity_sum"><%= f.text_field :fish_quantity, class:"quantity-input", id:"vege-quan-input", placeholder:"例）150" %><div>g</div></div></th>
+            <th><div class="quantity_sum"><%= f.text_field :vege_quantity, class:"quantity-input", id:"vege-quan-input", placeholder:"例）150" %><div>g</div></div></th>
             <th><div class="pfc-window"><span id="vege-pro-content"></span>g</div></th>
             <th><div class="pfc-window"><span id="vege-fat-content"></span>g</div></th>
             <th><div class="pfc-window"><span id="vege-carbo-content"></span>g</div></th>

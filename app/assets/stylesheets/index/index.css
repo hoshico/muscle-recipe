@@ -1,6 +1,7 @@
 .main_container {
-      height: 100vh;
+      height: 100%;
       background-color: #f8f5f5;
+      padding-bottom: 100px;
 }
 
 .index-inner {
@@ -21,7 +22,7 @@
 .post-wrapper::after {
       display: block;
       content:"";
-      width: calc((100% - 50px) / 3);
+      width: calc((100% - 50px) / 4);
 }
 
 @media (max-width: 1024px) {
