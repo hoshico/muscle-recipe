@@ -18,8 +18,17 @@
           </table>
         </div>
         <div class="my-chart">
-          <p>グラフ</p>
-          <%= pie_chart @mypfc_chart, width: "320px", height: "320px", colors: ["red", "orange", "blue"] %>
+          <p>PFCグラフ(投稿合計)</p>
+          <div class="my-info">
+            <%= pie_chart @mypfc_chart, width: "360px", height: "360px", colors: ["red", "orange", "blue"] %>
+            <%= "総タンパク質量: #{@myprotein}g" %>
+            <% if @myprotein < 100 %>
+              <p>初級マッスル</p>
+            <% elsif @myprotein >= 100%>
+              <p>マッスル見習い(タンパク質100以上)</p>
+            <% end%>
+            
+          </div>  
         </div>
       </div>
       <h2 class="recipes">

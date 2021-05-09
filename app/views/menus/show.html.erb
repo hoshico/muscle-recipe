@@ -70,8 +70,12 @@
         <div>
           <% if user_signed_in? && current_user.id == @menu.user_id %>
             <div class="menu__manage">
-              <%= link_to "編集する", edit_menu_path(@menu.id), class: :menu__btn %>
-              <%= link_to "このレシピを削除する", menu_path(@menu.id), method: :delete, class: :menu__btn %>
+              <div class="menu-edit">    
+                <%= link_to "編集する", edit_menu_path(@menu.id), class: :menu__btn %>
+              </div>
+              <div class="menu-delete">  
+                <%= link_to "このレシピを削除する", menu_path(@menu.id), method: :delete, class: :menu__btn %>
+              </div>  
             </div>
           <% end %>
         </div>
