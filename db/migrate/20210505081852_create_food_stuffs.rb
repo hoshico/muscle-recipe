@@ -13,7 +13,7 @@ class CreateFoodStuffs < ActiveRecord::Migration[6.0]
       t.integer :total_f
       t.integer :total_c
       t.text    :etc_food,                    null: false
-      t.references :menu,  foreign_key: true, null: false   
+      t.references :menu,  foreign_key: true, null: false  
       t.timestamps
     end
   end

@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2021_05_05_081852) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "menu_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "menu_id"], name: "index_favorites_on_user_id_and_menu_id", unique: true
+  end
+
   create_table "food_stuffs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "meet_id"
     t.integer "meet_quantity"

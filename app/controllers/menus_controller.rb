@@ -49,10 +49,7 @@ class MenusController < ApplicationController
 
   private
   def menu_params
-    params.require(:menu).permit(:title, :image, :recipe, food_stuff_attributes: [:meet_id, :meet_quantity, :fish_id, :fish_quantity, :vege_id, :vege_quantity, :dairy_id, :dairy_quantity, :etc_food, :total_p, :total_f, :total_c]).merge(user_id: current_user.id)
+    params.require(:menu).permit(:title, :image, :recipe, food_stuff_attributes: [:meet_id, :meet_quantity, :fish_id, :fish_quantity, :vege_id, :vege_quantity, :dairy_id, :dairy_quantity, :etc_food, :total_p, :total_f, :total_c, :user_id]).merge(user_id: current_user.id)
   end
 
-  # def load_menu
-  #   @menu = current_user.menu.find(params[:id])
-  # end
 end
