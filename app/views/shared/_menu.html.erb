@@ -3,7 +3,10 @@
     <%= link_to image_tag(menu.image, class: :card_img ), menu_path(menu.id) %>
   </div>
   <div class="card-body">
-    <%= link_to menu.title, menu_path(menu.id), class: :card_title%>
-    <%= link_to "by #{menu.user.nickname}", user_path(menu.user_id), class: :card_user %>
+    <div><%= link_to menu.title, menu_path(menu.id), class: :card_title%></div>
+    <div><%= link_to "by #{menu.user.nickname}", user_path(menu.user_id), class: :card_user %></div>
+  </div>
+  <div class="bar-chart">
+    <%= bar_chart [['タンパク質', menu.food_stuff.total_p], ['脂質', menu.food_stuff.total_f], ['炭水化物', menu.food_stuff.total_c]], width: "230px", height: "100px"%>
   </div>
 </div>
