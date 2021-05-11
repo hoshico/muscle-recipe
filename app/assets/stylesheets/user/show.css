@@ -1,6 +1,6 @@
 .main {
   background-color: #f0ecece8;
-  padding-bottom: 100px;
+  padding: 10px 0 100px 0;
 }
 .inner {
   background-color: white;
@@ -9,39 +9,39 @@
   box-shadow: 0 0 8px;
 }
 
+.user__wrapper {
+   background-color: rgb(235, 240, 232);
+}
 .page-heading {
-  background-color: blue;
   text-align: center;
   height: 5vh;
   font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
-.pic {
-   background-color: rgb(241, 143, 143);
-   height: 30vh;
-}
+
 .prof {
    width: 60%;
-   height: 70vh;
-   /* background-color: chartreuse;; */
-   display: flex;
+   height: 30%;
+   margin: 0 auto;
 }
 
 .table {
-   background-color: rgb(42, 165, 79);
-   width: 50vw;
-   height: 30vh;
+   width: 50%;
+   height: 150px;
+   margin: 0 auto;
 } 
 
 .my-chart {
-   /* background-color: crimson; */
    width: 50vw;
    text-align: center;
+   margin: 0 auto;
 }
-
-/* .my-info {
-   display: flex;
-} */
+.my-info {
+   width: 50%;
+   height: 100%;
+   margin: 0 auto;
+}
 
 .recipes {
    text-align: center;
@@ -53,17 +53,7 @@
    margin: 2vh auto;
 }
 
-/* .user_card {
-   margin: 0 auto;
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-between;
-   flex-direction: row;
-   align-items: center;
+.table__col2 {
+   font-family: 'Times New Roman', Times, serif;
+   font-weight: 700;
 }
-
-.user_card::after {
-   display: block;
-   content:"";
-   width: calc((100% - 50px) / 3);
-} */

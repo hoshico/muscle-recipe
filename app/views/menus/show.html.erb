@@ -2,7 +2,8 @@
 
 <main class="main-wrapper">
   <div class="main-inner">
-    <div class="menu-rapper">
+
+    <div class="menu-wrapper">
 
       <div class="pic-content">
         <div class="menu_image">
@@ -14,7 +15,6 @@
         </div>
         <div class="pfc-content">
           <h2 class="pfc-title">[PFCグラフ]</h2>
-          
           <% if @food_stuff.meet_id == 1 && @food_stuff.fish_id == 1 && @food_stuff.vege_id == 1 && @food_stuff.dairy_id == 1 %>
             <div class="attention">メイン食材が登録されていません</div>
           <% else %>
@@ -25,59 +25,64 @@
       </div>
 
       <div class="info-wrapper">
-        <div class="foodstuff-content">
-          <div><span>【メイン食材】</span>
-            <% if @food_stuff.meet_id == 1 && @food_stuff.fish_id == 1 && @food_stuff.vege_id == 1 && @food_stuff.dairy_id == 1 %>
-               <div class="attention">食材(その他)を参照</div>   
-            <% else %>  
-              <% if @food_stuff.meet_id && @food_stuff.meet_quantity%>  
-                <div>
-                  <%= Meet.find_by(id: @food_stuff.meet_id).name %><span><%= @food_stuff.meet_quantity %>g</span>
-                </div>
-              <% end %>
-              <% if @food_stuff.fish_id && @food_stuff.fish_quantity%>
-                <div>
-                  <%= Fish.find_by(id: @food_stuff.fish_id).name %><span><%= @food_stuff.fish_quantity %>g</span>
-                </div>
-              <% end %>
-              <% if @food_stuff.vege_id && @food_stuff.vege_quantity%>
-                <div>
-                  <%= Vege.find_by(id: @food_stuff.vege_id).name %><span><%= @food_stuff.vege_quantity %>g</span>
-                </div>
-              <% end %>
-              <% if @food_stuff.dairy_id && @food_stuff.dairy_quantity%>
-                <div>
-                  <%= Dairy.find_by(id: @food_stuff.dairy_id).name %><span><%= @food_stuff.dairy_quantity %>g</span>
-                </div>
-              <% end %>
-            <% end %> 
-          </div>
-          
-        </div>
-        <div class="etc-info">
-          <P>【食材(その他)】</P>
-          <%= @food_stuff.etc_food%>
-        </div>
-        <div class="info-contetn">
-          <div class="menu__detail">
-            <p class="detail__title">【作り方】</p>
-            <p class="detail__message">
-              <%= @menu.recipe %>
-            </p>
-          </div>
-        </div>
 
-        <div>
-          <% if user_signed_in? && current_user.id == @menu.user_id %>
-            <div class="menu__manage">
-              <div class="menu-edit">    
-                <%= link_to "編集する", edit_menu_path(@menu.id), class: :menu__btn %>
-              </div>
-              <div class="menu-delete">  
-                <%= link_to "このレシピを削除する", menu_path(@menu.id), method: :delete, class: :menu__btn %>
-              </div>  
+        <div class="foodstuff-content">
+          <div class="main-food">
+            <div><span>【メイン食材】</span>
+              <% if @food_stuff.meet_id == 1 && @food_stuff.fish_id == 1 && @food_stuff.vege_id == 1 && @food_stuff.dairy_id == 1 %>
+                <div class="attention">【食材(その他)を参照】</div>   
+              <% else %>  
+                <% if @food_stuff.meet_id && @food_stuff.meet_quantity%>  
+                  <div>
+                    <%= Meet.find_by(id: @food_stuff.meet_id).name %><span><%= @food_stuff.meet_quantity %>g</span>
+                  </div>
+                <% end %>
+                <% if @food_stuff.fish_id && @food_stuff.fish_quantity%>
+                  <div>
+                    <%= Fish.find_by(id: @food_stuff.fish_id).name %><span><%= @food_stuff.fish_quantity %>g</span>
+                  </div>
+                <% end %>
+                <% if @food_stuff.vege_id && @food_stuff.vege_quantity%>
+                  <div>
+                    <%= Vege.find_by(id: @food_stuff.vege_id).name %><span><%= @food_stuff.vege_quantity %>g</span>
+                  </div>
+                <% end %>
+                <% if @food_stuff.dairy_id && @food_stuff.dairy_quantity%>
+                  <div>
+                    <%= Dairy.find_by(id: @food_stuff.dairy_id).name %><span><%= @food_stuff.dairy_quantity %>g</span>
+                  </div>
+                <% end %>
+              <% end %>  
             </div>
-          <% end %>
+          </div> 
+          <div class="etc-info">
+            <P>【食材(その他)】</P>
+            <%= @food_stuff.etc_food%>
+          </div> 
+        </div>
+        
+        <div class="recipe-info">
+          <div class="info-contetn">
+            <div class="menu__detail">
+              <p class="detail__title">【作り方】</p>
+              <p class="detail__message">
+                <%= @menu.recipe %>
+              </p>
+            </div>
+          </div>
+
+          <div class="edit">
+            <% if user_signed_in? && current_user.id == @menu.user_id %>
+              <div class="menu__manage">
+                <div class="menu-edit">    
+                  <%= link_to "編集する", edit_menu_path(@menu.id), class: :menu__btn %>
+                </div>
+                <div class="menu-delete">  
+                  <%= link_to "レシピを削除する", menu_path(@menu.id), method: :delete, class: :menu__btn %>
+                </div>  
+              </div>
+            <% end %>
+          </div>
         </div>
 
       </div>
