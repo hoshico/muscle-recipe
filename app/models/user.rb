@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :menus, dependent: :destroy
-  has_many :favorits
+  has_many :likes
 
   with_options presence: true do
     validates :nickname
