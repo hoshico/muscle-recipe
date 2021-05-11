@@ -3,45 +3,58 @@
   <div class="inner">
     <div class="user__wrapper">
       <h2 class="page-heading">
-        <%= "#{@user.nickname}のキッチン"%>
+        <%= "ユーザー詳細"%>
       </h2>
       <div class="prof">
         <div>
-          <div class="pic">写真</div>
           <table class="table">
             <tbody>
               <tr>
-                <th class="table__col1">名前</th>
-                <td class="table__col2"><%= @user.nickname %></td>
+                <th class="table__col1">ニックネーム:</th>
+                <th class="table__col2"><%= @user.nickname %></th>
+              </tr>
+              <tr>
+                <th><%= "総タンパク質量:" %></th>
+                <th class="table__col2"><%= "#{@myprotein}g"%></th>
+              </tr>
+              <tr>
+                <th><%= "称号:"%>
+                <th class="table__col2">
+                  <% if @myprotein < 100 %>
+                  <p>初級マッスル</p>p>(タンパク質量:~100)</p>
+                  <% elsif  @myprotein >= 100 %>
+                  <p>マッスル見習い</p><p>(タンパク質量:100~300)</p>
+                  <% elsif  @myprotein >= 300 %>
+                  <p>スタンダードマッスル</p><P>(タンパク質量:300~)</p>
+                  <% end%>
+                 </th>
+              </tr>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="my-chart">
+       </div>
+       <div class="my-chart">
           <p>PFCグラフ(投稿合計)</p>
           <div class="my-info">
             <%= pie_chart @mypfc_chart, width: "360px", height: "360px", colors: ["red", "orange", "blue"] %>
-            <%= "総タンパク質量: #{@myprotein}g" %>
-            <% if @myprotein < 100 %>
-              <p>初級マッスル</p>
-            <% elsif @myprotein >= 100%>
-              <p>マッスル見習い(タンパク質100以上)</p>
-            <% end%>
             
           </div>  
         </div>
-      </div>
+
       <h2 class="recipes">
         <%= "#{@user.nickname}さんのレシピ"%>
       </h2>
       
-      <div class="user_card_collection">
+      
+
+    </div>
+
+    <div class="user_card_collection">
         <div class="post-wrapper"> 
           <%= render partial: 'shared/menu', collection: @menus %> 
         </div>
       </div>
-
-    </div>
   </div>
 </div>
 <%= render "shared/footer" %>

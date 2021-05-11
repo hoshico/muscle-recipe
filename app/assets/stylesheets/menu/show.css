@@ -1,20 +1,35 @@
 .main-wrapper {
       background-color: rgb(238, 232, 232);
+      padding:10px  0 200px 0;
+
 }
 
 .main-inner {
-      background-color: white;
+      background-color: rgb(252, 249, 232);
       width: 95vw;
-      height: 100vh;
+      height: 120Vh;
       margin: 0 auto;
-      box-shadow: 0 0 4px;
+      box-shadow: 0 0 10px;
+}
+
+.menu-wrapper {
+      width: 95%;
+      height: 100%;
+      margin: 0 auto;
 }
 .menu-hedding {
       width: 450px;
       height: 30px;
-      font-size: 20px;
+      font-size: 25px;
+      margin-top: 8px;
 }
 
+.show_img {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+      margin-top: 5px;
+}
 
 .pic-content {
       display: flex;
@@ -22,7 +37,7 @@
 
 }
 .pfc-title {
-      font-size: 20px;
+      font-size: 15px;
       font-family:'Times New Roman', Times, serif;
 }
 .pfc-content {
@@ -31,13 +46,53 @@
 }
 
 .info-wrapper {
-      margin: 30px 0 0 70px;
+      margin: 10px 0 0 70px;
       display: flex;
+      height: 43%;
 }
 
-.info-contetn{
-      width: 40%;
+
+.foodstuff-content {
+      width: 45%;
 }
+
+.main-food {
+      width: 40%;
+      margin-bottom: 30px;
+}
+
+
+
+
+
+.foodstuff-content span {
+      margin-left: 10px;
+      font-size: 15px;
+}
+
+.recipe-info {
+      width: 50%;
+      position: relative;
+}
+.edit {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+}
+.menu__manage {
+      display: flex;
+      justify-content: flex-end;
+}
+
+.menu-delete {
+      margin-left: 30px;
+}
+
+
+
+/* 
+
+
 
 .attention {
       color: gray;
@@ -51,21 +106,8 @@
 .menu_user {
       text-decoration: none;
 }
-.show_img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-}
 
-.foodstuff-content span {
-      margin-left: 10px;
-      font-size: 15px;
-}
 
-.foodstuff-content {
-      display: flex;
-      margin-right: 20px;
-}
 
 .menu__detail {
       margin-left: 180px;
@@ -81,4 +123,4 @@
 
 .menu-edit {
       margin-right: 40px;
-}
+} */
