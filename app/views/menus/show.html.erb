@@ -12,7 +12,12 @@
             <%= link_to "by #{@menu.user.nickname}", user_path(@menu.user_id), class: :menu_user %>
           </h2>
           <%= image_tag(@menu.image, class: "show_img") %>
+
+          <div id="menu_<%= @menu.id %>">
+            <%= render 'likes/like', { menu: @menu} %>
+          </div>
         </div>
+
         <div class="pfc-content">
           <h2 class="pfc-title">[PFCグラフ]</h2>
           <% if @food_stuff.meet_id == 1 && @food_stuff.fish_id == 1 && @food_stuff.vege_id == 1 && @food_stuff.dairy_id == 1 %>

@@ -1,0 +1,1 @@
+document.getElementById('menu_<%= @menu.id %>').innerHTML = '<%= j(render partial: 'likes/like', locals: { menu: @menu }) %>'

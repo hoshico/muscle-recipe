@@ -1,0 +1,15 @@
+<%if user_signed_in? %>
+  <% if Like.find_by(user_id: current_user.id, menu_id: menu.id) %>
+    <%=link_to menu_like_path(menu.likes, menu_id: menu.id), {method: "delete", remote: true, class: "likes-count"} do %>
+      <i class="fas fa-heart haert-red"></i>
+      <%= menu.likes.count %>
+    <% end %>
+  <% else %>
+    <%=link_to menu_likes_path(menu.id), {method: "post", remote: true, class: "likes-count"} do %>
+      <i class="far fa-heart"></i>
+      <%= menu.likes.count %>
+    <% end %>
+  <% end %>
+<% else %>
+  <i class="far fa-heart"></i><%= menu.likes.count %>
+<% end %>
