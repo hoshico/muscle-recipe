@@ -24,6 +24,13 @@
       width: calc((100% - 50px) / 4);
 }
 
+.post-wrapper::before {
+      display: block;
+      content:"";
+      width: calc((100% - 50px) / 4);
+      order: 1;
+}
+
 @media (max-width: 1024px) {
   .header-left .header-logo {
     width:100%;

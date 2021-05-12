@@ -21,8 +21,8 @@
                 <th><%= "称号:"%>
                 <th class="table__col2">
                   <% if @myprotein < 100 %>
-                  <p>初級マッスル</p>p>(タンパク質量:~100)</p>
-                  <% elsif  @myprotein >= 100 %>
+                  <p>初級マッスル</p><p>(タンパク質量:~100)</p>
+                  <% elsif   @myprotein >= 100 && @myprotein < 300 %>
                   <p>マッスル見習い</p><p>(タンパク質量:100~300)</p>
                   <% elsif  @myprotein >= 300 %>
                   <p>スタンダードマッスル</p><P>(タンパク質量:300~)</p>
