@@ -27,7 +27,7 @@
 - has_one :food_stuff
 - belongs_to :user
 
-## favorites テーブル
+## likes テーブル
 
 | Column        | Type          | Options           |
 | ------------- | ------------- | ----------------- |

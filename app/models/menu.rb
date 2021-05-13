@@ -14,7 +14,7 @@ class Menu < ApplicationRecord
   with_options presence: true do
     validates :image, :user_id
     validates :title, length: { maximum: 20 }
-    validates :recipe, length: { maximum: 100 }
+    validates :recipe, length: { maximum: 150 }
   end
 
   def like_user(user_id)
