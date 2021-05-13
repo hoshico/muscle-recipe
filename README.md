@@ -32,8 +32,14 @@ https://user-images.githubusercontent.com/77495217/118120945-ae8cf980-b42b-11eb-
 
  
 # URL
+
+https://muscle-recipe.herokuapp.com/
  
 # テスト用アカウント
+
+- メールアドレス
+  - test@com
+  - test23
 
 # 機能一覧
 
