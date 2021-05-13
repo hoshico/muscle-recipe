@@ -1,3 +1,83 @@
+# Name
+ 
+『マッスルレシピ』
+ 
+# Overview
+ 料理の味や見た目で今日の献立を探すようなレシピ投稿アプリケーションではなく、
+ 
+ コンビニで商品を手にし、パッケージの成分表を確認できる様に、レシピごとの「タンパク質/脂質/炭水化物の量」を確認することが出来るようなレシピ投稿アプリケーション。
+
+# DEMO
+トップ画面
+![TOPPAGE](https://user-images.githubusercontent.com/77495217/118112450-f9087900-b41f-11eb-901c-dbbeaa18e78f.png)
+
+レシピ詳細画面
+
+ 
+# Features
+レシピ投稿画面にてメイン食材を登録することでPFC(タンパク質/脂質/炭水化物)が自動で算出され表示されます
+
+https://user-images.githubusercontent.com/77495217/118120945-ae8cf980-b42b-11eb-8f0f-66185381f94a.mov
+
+
+ 
+
+ 
+# Requirement
+ 
+"hoge"を動かすのに必要なライブラリなどを列挙する
+ 
+* huga 3.5.2
+* hogehuga 1.0.2
+ 
+# Installation
+ 
+Requirementで列挙したライブラリなどのインストール方法を説明する
+ 
+```bash
+pip install huga_package
+```
+ 
+# Usage
+ 
+DEMOの実行方法など、"hoge"の基本的な使い方を説明する
+ 
+```bash
+git clone https://github.com/hoge/~
+cd examples
+python demo.py
+```
+ 
+# Note
+ 
+注意点などがあれば書く
+ 
+# Author
+ 
+作成情報を列挙する
+ 
+* 作成者
+* 所属
+* E-mail
+ 
+# License
+ライセンスを明示する
+ 
+"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+ 
+社内向けなら社外秘であることを明示してる
+ 
+"hoge" is Confidential.
+
+
+
+
+
+
+
+
+
+
 # テーブル設計
 
 ## users テーブル
