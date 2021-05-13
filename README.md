@@ -9,9 +9,10 @@
 
 # DEMO
 トップ画面
-![TOPPAGE](https://user-images.githubusercontent.com/77495217/118112450-f9087900-b41f-11eb-901c-dbbeaa18e78f.png)
+![トップ画面](https://user-images.githubusercontent.com/77495217/118112450-f9087900-b41f-11eb-901c-dbbeaa18e78f.png)
 
 レシピ詳細画面
+![詳細画面](https://user-images.githubusercontent.com/77495217/118121344-4f7bb480-b42c-11eb-943e-078e44d135ab.png)
 
  
 # Features
