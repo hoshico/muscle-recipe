@@ -46,6 +46,11 @@ https://user-images.githubusercontent.com/77495217/118120945-ae8cf980-b42b-11eb-
    - いいね機能(JavaScript)
  
 
+ 
+# テーブル設計
+![スクリーンショット 2021-05-13 21 47 32](https://user-images.githubusercontent.com/77495217/118127596-e2b8e800-b434-11eb-8ad3-96955c1e3081.png)
+
+
 
 # 制作背景
 
@@ -54,75 +59,17 @@ https://user-images.githubusercontent.com/77495217/118120945-ae8cf980-b42b-11eb-
 「体重を落としたい。」「理想的なカラダを作りたい。」、そう考える方にとって普段の食生活を改善するヒントになればと思い作成しました。
 
 
+# 工夫したポイント
+
+・「PFC自動計算」や「いいね機能」の実装においてjQueryを使わずに素のJavaScriptを使うようにしました。(JavaScriptだけで実装可能と判断したため。またJavaScriptでどこまで出来るか勉強してみたかったため)
+
+・UIにおいてもbootstrapなどのフレームワークを使わずに取り組んでみました。
+
+# 実装予定
+
+- AWSでのデプロイ
+- AWs Route 53を使っての独自ドメイン取得
+- Ajax通信を使っての並び替え機能
 
 
  
-# 
-
-
-
-
-
-# テーブル設計
-
-## users テーブル
-
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-
-### Association
-
-- has_many :menus
-- has_many :favorites
-
-## menus テーブル
-
-| Column                 | Type          | Options                        |
-| ---------------------- | ------------- | ------------------------------ |
-| title                  | string        | null: false                    |
-| recipe                 | text          | null: false                    |
-| user                   | references    | null: false, foreign_key: true |
-
-
-### Association
-
-- has_one :food_stuff
-- belongs_to :user
-
-## favorites テーブル
-
-| Column        | Type          | Options           |
-| ------------- | ------------- | ----------------- |
-| user          | references    | foreign_key: true |
-| menu          | references    | foreign_key: true |
-
-
-### Association
-
-- belongs_to :user
-- belongs_to :menu
-
-## food_stuffs テーブル
-
-| Column           | Type          | Options                        |
-| ---------------- | ------------- | ------------------------------ |
-| meet_id          | integer       |                                | 
-| meet_quantity    | integer       |                                |
-| fish_id          | integer       |                                |
-| fish_quantity    | integer       |                                | 
-| vege_id          | integer       |                                |
-| vege_quantity    | integer       |                                |
-| dairy_id         | integer       |                                | 
-| dairy_quantity   | integer       |                                |
-| total_p          | integer       |                                |
-| total_f          | integer       |                                |
-| total_c          | integer       |                                |
-| etc_food         | integer       | null: false                    |
-| menu_id          | references    | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :menu
