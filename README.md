@@ -1,79 +1,63 @@
-# Name
+# タイトル
  
 『マッスルレシピ』
  
-# Overview
+# 概要
  料理の味や見た目で今日の献立を探すようなレシピ投稿アプリケーションではなく、
  
  コンビニで商品を手にし、パッケージの成分表を確認できる様に、レシピごとの「タンパク質/脂質/炭水化物の量」を確認することが出来るようなレシピ投稿アプリケーション。
 
-# DEMO
-トップ画面
+# デモ
+
+・トップ画面
 ![トップ画面](https://user-images.githubusercontent.com/77495217/118112450-f9087900-b41f-11eb-901c-dbbeaa18e78f.png)
 
-レシピ詳細画面
+・レシピ詳細画面
 ![詳細画面](https://user-images.githubusercontent.com/77495217/118121344-4f7bb480-b42c-11eb-943e-078e44d135ab.png)
 
  
-# Features
-レシピ投稿画面にてメイン食材を登録することでPFC(タンパク質/脂質/炭水化物)が自動で算出され表示されます
+# 特徴
+
+・レシピ投稿画面にてメイン食材を登録することでPFC(タンパク質/脂質/炭水化物)が自動で算出され表示されます
 
 https://user-images.githubusercontent.com/77495217/118120945-ae8cf980-b42b-11eb-8f0f-66185381f94a.mov
 
+ 
+# 使用技術
+ 
+* ruby 2.6.5
+* Rails 6.0.3.6
+* mysql  Ver 14.14
 
  
+# URL
+ 
+# テスト用アカウント
 
+# 機能一覧
+
+- ユーザー登録機能、ログイン機能(devise)
+- 投稿一覧機能
+- 投稿機能
+   - 画像登録(ActiveStorage)
+   - PFC自動算出機能(JavaScript)
+- 投稿詳細機能
+   - 円グラフ表示機能(chartkick)
+   - いいね機能(JavaScript)
  
-# Requirement
- 
-"hoge"を動かすのに必要なライブラリなどを列挙する
- 
-* huga 3.5.2
-* hogehuga 1.0.2
- 
-# Installation
- 
-Requirementで列挙したライブラリなどのインストール方法を説明する
- 
-```bash
-pip install huga_package
-```
- 
-# Usage
- 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
- 
-```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
-```
- 
-# Note
- 
-注意点などがあれば書く
- 
-# Author
- 
-作成情報を列挙する
- 
-* 作成者
-* 所属
-* E-mail
- 
-# License
-ライセンスを明示する
- 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
- 
-社内向けなら社外秘であることを明示してる
- 
-"hoge" is Confidential.
+
+
+# 制作背景
+
+私自身食習慣を見直し、「タンパク質が多く、糖質の低い」食事メニューを定番化させたことで一年間で７キロ体重を落とした経験があります。
+今でも食事を定番化させること、成分の把握できているものを極力毎日食べることがダイエットの答えであると考えています。
+「体重を落としたい。」「理想的なカラダを作りたい。」、そう考える方にとって普段の食生活を改善するヒントになればと思い作成しました。
 
 
 
 
-
+ 
+# 
 
 
 
