@@ -51,6 +51,8 @@ https://muscle-recipe.herokuapp.com/
 - 投稿詳細機能
    - 円グラフ表示機能(chartkick)
    - いいね機能(JavaScript)
+   - 投稿編集機能
+   - 投稿削除機能
  
 
  
