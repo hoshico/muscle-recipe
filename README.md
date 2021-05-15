@@ -73,7 +73,6 @@ https://muscle-recipe.herokuapp.com/
 # 工夫したポイント
 
 ・「PFC自動計算」や「いいね機能」の実装においてjQueryを使わずに素のJavaScriptを使うようにしました。(JavaScriptだけで実装可能と判断したため。またJavaScriptでどこまで出来るか勉強してみたかったため)
-
 ・UIにおいてもbootstrapなどのフレームワークを使わずに取り組んでみました。
 
 # 実装予定
