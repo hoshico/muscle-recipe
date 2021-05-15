@@ -38,7 +38,7 @@ RSpec.describe Menu, type: :model do
       it 'recipeが500文字以上では登録できないこと' do
         @menu.recipe = 'あ' * 501
         @menu.valid?
-        expect(@menu.errors.full_messages).to include('Recipe is too long (maximum is 5 characters)')
+        expect(@menu.errors.full_messages).to include('Recipe is too long (maximum is 500 characters)')
       end
     end
   end
