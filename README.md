@@ -5,6 +5,7 @@
 # URL
 
 https://muscle-recipe.herokuapp.com/
+※herokuでデプロイしているため、画像がリンク切れとなっている可能性があります。ご了承ください。
  
 # テスト用アカウント
 
