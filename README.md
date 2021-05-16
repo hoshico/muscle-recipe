@@ -65,6 +65,7 @@ https://user-images.githubusercontent.com/77495217/118120945-ae8cf980-b42b-11eb-
    - 投稿削除機能
 - テスト機能(RSpec)
    - 単体テスト
+   - 結合テスト
 
  
 # テーブル設計
