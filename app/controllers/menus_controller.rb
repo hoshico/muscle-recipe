@@ -1,5 +1,7 @@
 class MenusController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :set_menu, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
     @menus = Menu.all.includes(:user).order("created_at DESC")
@@ -20,7 +22,6 @@ class MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.find(params[:id]) 
     @food_stuff = FoodStuff.find_by(menu_id: @menu.id)
     protein = @food_stuff.total_p
     fat = @food_stuff.total_f
@@ -29,11 +30,9 @@ class MenusController < ApplicationController
   end
 
   def edit
-    @menu = Menu.find(params[:id]) 
   end
 
   def update
-    @menu = Menu.find(params[:id]) 
     if @menu.update(menu_params)
       redirect_to menu_path(@menu.id)
     else
@@ -42,7 +41,6 @@ class MenusController < ApplicationController
   end
 
   def destroy
-    @menu = Menu.find(params[:id])
     @menu.destroy
     redirect_to root_path
   end
@@ -52,4 +50,11 @@ class MenusController < ApplicationController
     params.require(:menu).permit(:title, :image, :recipe, food_stuff_attributes: [:meet_id, :meet_quantity, :fish_id, :fish_quantity, :vege_id, :vege_quantity, :dairy_id, :dairy_quantity, :etc_food, :total_p, :total_f, :total_c, :user_id]).merge(user_id: current_user.id)
   end
 
+  def set_menu
+    @menu = Menu.find(params[:id])
+  end
+
+  def move_to_index
+    return redirect_to action: :index if current_user.id != @menu.user_id
+  end
 end
