@@ -48,7 +48,7 @@
 .info-wrapper {
       margin: 10px 0 0 70px;
       display: flex;
-      height: 43%;
+      height: 41%;
 }
 
 
@@ -97,37 +97,3 @@
       margin-left: 10px;
       font-size: 20px;
 }
-/* 
-
-
-
-.attention {
-      color: gray;
-      font-size: 12px;
-}
-.menu_image {
-      width: 450px;
-      height: 400px;   
-}
-
-.menu_user {
-      text-decoration: none;
-}
-
-
-
-.menu__detail {
-      margin-left: 180px;
-      background-color: blue;
-}
-
-.menu__manage {
-      width: 400px;
-      margin:140px 0 0 100px;
-      background-color: aquamarine;
-      display: flex;
-}
-
-.menu-edit {
-      margin-right: 40px;
-} */
