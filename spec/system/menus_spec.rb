@@ -16,9 +16,9 @@ RSpec.describe 'レシピ投稿', type: :system do
       expect(current_path).to eq(root_path)
       # 新規投稿ページへのボタンがあることを確認する
       expect(page).to have_content('レシピを投稿する')
-      menu.food_stuff.total_p = @menu.food_stuff.total_p
-      menu.food_stuff.total_f = @menu.food_stuff.total_f
-      menu.food_stuff.total_c = @menu.food_stuff.total_c
+      # menu.food_stuff.total_p = @menu.food_stuff.total_p
+      # menu.food_stuff.total_f = @menu.food_stuff.total_f
+      # menu.food_stuff.total_c = @menu.food_stuff.total_c
       # 投稿ページに移動する
       visit new_menu_path
       # フォームに情報を入力する
