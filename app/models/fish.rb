@@ -7,6 +7,12 @@ class Fish < ActiveHash::Base
           { id: 5, name: 'いか', protein: 0.16, fat: 0.14, carbo: 0 },
           { id: 6, name: 'サバ', protein: 0.2, fat: 0.04, carbo: 0  },
           { id: 7, name: 'タイ', protein: 0.14, fat: 0.32, carbo: 0  },
+          { id: 8, name: 'シャケ', protein: 0.2, fat: 0.13, carbo: 0  },
+          { id: 9, name: 'ブリ', protein: 0.2, fat: 0.18, carbo: 0  },
+          { id: 10, name: 'サワラ', protein: 0.2, fat: 0.1, carbo: 0  },
+          { id: 11, name: 'ホタテ', protein: 0.14, fat: 0.01, carbo: 0.02 },
+          { id: 12, name: 'アジ', protein: 0.2, fat: 0.05, carbo: 0  },
+          { id: 13, name: 'えび', protein: 0.2, fat: 0.01, carbo: 0  },
        ]
     
       include ActiveHash::Associations
