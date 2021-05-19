@@ -2,9 +2,6 @@ class LikesController < ApplicationController
   before_action :set_menu
 
   def create
-#     @like = current_user.likes.new(menu_id: @menu.id)
-#     @like.save
-#     @likes = Like.where(menu_id: @menu.id)
    like = Like.create(user_id: current_user.id, menu_id: @menu.id)
    like.save
   end

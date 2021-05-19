@@ -2,7 +2,6 @@ const pfc = function () {
    
    function keisan(){
      
-      /* お肉ゾーン */ 
      const dataNumP = selectMeet.options[ selectMeet.selectedIndex].getAttribute("data-protein");
      const dataNumF = selectMeet.options[ selectMeet.selectedIndex].getAttribute("data-fat");
      const dataNumC = selectMeet.options[ selectMeet.selectedIndex].getAttribute("data-carbo");
@@ -18,8 +17,6 @@ const pfc = function () {
      mulCarboInput.innerHTML = Math.floor(inputValue * dataNumC)
 
 
-
-      /* お魚ゾーン */
      const dataFishNumP = selectFish.options[ selectFish.selectedIndex].getAttribute("data-protein");
      const dataFishNumF = selectFish.options[ selectFish.selectedIndex].getAttribute("data-fat");
      const dataFishNumC = selectFish.options[ selectFish.selectedIndex].getAttribute("data-carbo");
@@ -34,7 +31,6 @@ const pfc = function () {
      mulFatFishInput.innerHTML = Math.floor(inputFishValue * dataFishNumF)
      mulCarboFishInput.innerHTML = Math.floor(inputFishValue * dataFishNumC)
 
-      /* 野菜ゾーン */
      const dataVegeNumP = selectVege.options[ selectVege.selectedIndex].getAttribute("data-protein");
      const dataVegeNumF = selectVege.options[ selectVege.selectedIndex].getAttribute("data-fat");
      const dataVegeNumC = selectVege.options[ selectVege.selectedIndex].getAttribute("data-carbo");
@@ -49,7 +45,6 @@ const pfc = function () {
      mulFatVegeInput.innerHTML = Math.floor(inputVegeValue * dataVegeNumF)
      mulCarboVegeInput.innerHTML = Math.floor(inputVegeValue * dataVegeNumC)
 
-     /* 乳製品・卵 */
      const dataDairyNumP = selectDairy.options[ selectDairy.selectedIndex].getAttribute("data-protein");
      const dataDairyNumF = selectDairy.options[ selectDairy.selectedIndex].getAttribute("data-fat");
      const dataDairyNumC = selectDairy.options[ selectDairy.selectedIndex].getAttribute("data-carbo");
@@ -67,20 +62,18 @@ const pfc = function () {
 
 
 
-      /* 合計ゾーン */
-      /* プロテイン */
      const totalProInput = document.getElementById("total-protein")
      totalProInput.value = Math.floor( inputDairyValue * dataDairyNumP + inputVegeValue * dataVegeNumP + inputFishValue * dataFishNumP + inputValue * dataNumP)
-      /* 脂質 */
+
      const totalFatInput = document.getElementById("total-fat")
      totalFatInput.value = Math.floor( inputDairyValue * dataDairyNumF + inputVegeValue * dataVegeNumF + inputFishValue * dataFishNumF + inputValue * dataNumF)
-      /* 炭水化物 */
+
       const totalCarboInput = document.getElementById("total-carbo")
      totalCarboInput.value = Math.floor( inputDairyValue * dataDairyNumC + inputVegeValue * dataVegeNumC + inputFishValue * dataFishNumC + inputValue * dataNumC)
       
    };
 
-   /* お肉発動 */
+   
    const selectMeet = document.getElementById("meet");
    selectMeet.addEventListener('change', function (){
       keisan();
@@ -90,7 +83,7 @@ const pfc = function () {
       keisan();
    })   
   
-   /* 魚発動 */
+   
    const selectFish = document.getElementById("fish");
    selectFish.addEventListener('change', function (){
       keisan();
@@ -100,7 +93,7 @@ const pfc = function () {
       keisan();
    })   
 
-   /* 野菜発動 */
+   
    const selectVege = document.getElementById("vege");
    selectVege.addEventListener('change', function (){
       keisan();
@@ -110,7 +103,7 @@ const pfc = function () {
       keisan();
    })   
 
-   /* 乳製品・卵発動 */
+   
    const selectDairy = document.getElementById("dairy");
    selectDairy.addEventListener('change', function (){
       keisan();
