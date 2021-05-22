@@ -22,14 +22,15 @@ RSpec.describe 'レシピ投稿', type: :system do
       # 投稿ページに移動する
       visit new_menu_path
       # フォームに情報を入力する
-      fill_in 'item-image', with: @menu.image
-      fill_in 'menu-name', with: @menu.title
-      fill_in 'etc-input', with: @food_stuff.etc_food
-      fill_in 'item-info', with: @menu.recipe
+      attach_file('menu[image]', 'public/images/test_image.jpeg')
+      # fill_in 'menu[image]', with: @menu.image
+      fill_in 'menu[title]', with: @menu.title
+      fill_in 'menu[food_stuff_attributes][etc_food]', with: @food_stuff.etc_food
+      fill_in 'menu[recipe]', with: @menu.recipe
 
-      fill_in 'total-protein', with: ""
-      fill_in 'total-fat', with: @food_stuff.total_f
-      fill_in 'total-carbo', with: @food_stuff.total_c
+      # fill_in 'total-protein', with: ""
+      # fill_in 'total-fat', with: @food_stuff.total_f
+      # fill_in 'total-carbo', with: @food_stuff.total_c
       # 送信するとTweetモデルのカウントが1上がることを確認する
       expect{
           find('input[name="commit"]').click
@@ -41,7 +42,7 @@ RSpec.describe 'レシピ投稿', type: :system do
       # トップページに遷移する
       visit root_path
       # トップページには先ほど投稿した内容のツイートが存在することを確認する（画像）
-      expect(page).to have_selector ".content_post[style='background-image: url(#{@menu.image});']"
+      # expect(page).to have_selector( "public/images/test_image.jpeg")
       # トップページには先ほど投稿した内容のツイートが存在することを確認する（テキスト）
       expect(page).to have_content(@menu.title)
     end

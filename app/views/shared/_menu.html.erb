@@ -7,6 +7,6 @@
     <div><%= link_to "by #{menu.user.nickname}", user_path(menu.user_id), class: :card_user %></div>
   </div>
   <div class="bar-chart">
-    <%= bar_chart [['タンパク質', menu.food_stuff.total_p], ['脂質', menu.food_stuff.total_f], ['炭水化物', menu.food_stuff.total_c]], width: "230px", height: "100px" %>
+    <%# <%= bar_chart [['タンパク質', menu.food_stuff.total_p], ['脂質', menu.food_stuff.total_f], ['炭水化物', menu.food_stuff.total_c]], width: "230px", height: "100px" %> %>
   </div>
 </div>
