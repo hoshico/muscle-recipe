@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    attributes:
+      menu:
+        image: 料理イメージ
+        title: 料理名
+        etc_food: その他食材
+        recipe: 料理の作り方
+      menu/food_stuff:
+        etc_food: その他材料
+      user: 
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        nickname: ニックネーム
