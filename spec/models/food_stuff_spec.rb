@@ -17,7 +17,7 @@ RSpec.describe FoodStuff, type: :model do
 
     context '内容に問題がある場合' do
       it 'etc_foodがに場合は登録できないこと' do
-        @food_stuff.etc_food = ""
+        @food_stuff.etc_food = ''
         @food_stuff.valid?
         expect(@food_stuff.errors.full_messages).to include("Etc food can't be blank")
       end

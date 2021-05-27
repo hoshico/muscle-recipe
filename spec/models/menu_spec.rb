@@ -28,7 +28,7 @@ RSpec.describe Menu, type: :model do
       it 'titleが21文字以上の場合は登録できないこと' do
         @menu.title = 'あああああああああああああああああああああ'
         @menu.valid?
-        expect(@menu.errors.full_messages).to include("Title is too long (maximum is 20 characters)")
+        expect(@menu.errors.full_messages).to include('Title is too long (maximum is 20 characters)')
       end
       it 'recipeがない場合は登録できないこと' do
         @menu.recipe = ''
