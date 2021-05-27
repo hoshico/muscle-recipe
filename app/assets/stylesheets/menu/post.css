@@ -203,7 +203,7 @@ tr th {
 }
 
 
-/*材料*/
+
 
 .menus-explain {
       margin-top: 2vh;
@@ -257,4 +257,16 @@ text-decoration: none;
 img {
       width: 300px;
       height: auto;
+}
+
+.error-alert {
+      text-align: center;
+      justify-content: center;
+      margin-bottom: 5vh;
+}
+    
+.error-message {
+      font-size: 1vw;
+      color: rgb(182, 48, 0);
+      margin-right: 5vh;
 }
