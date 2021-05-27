@@ -2,8 +2,8 @@ class LikesController < ApplicationController
   before_action :set_menu
 
   def create
-   like = Like.create(user_id: current_user.id, menu_id: @menu.id)
-   like.save
+    like = Like.create(user_id: current_user.id, menu_id: @menu.id)
+    like.save
   end
 
   def destroy
@@ -16,5 +16,4 @@ class LikesController < ApplicationController
   def set_menu
     @menu = Menu.find(params[:menu_id])
   end
-
 end

@@ -4,7 +4,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
   before do
     @user = FactoryBot.build(:user)
   end
-  context 'ユーザー新規登録ができるとき' do 
+  context 'ユーザー新規登録ができるとき' do
     it '正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
       visit root_path
       expect(page).to have_content('新規登録')
@@ -13,9 +13,9 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       fill_in 'メールアドレス', with: @user.email
       fill_in 'パスワード', with: @user.password
       fill_in 'パスワード(確認)', with: @user.password_confirmation
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { User.count }.by(1)
+      end.to change { User.count }.by(1)
       expect(current_path).to eq(root_path)
       expect(
         find('.header-right').find('ul').hover
@@ -33,9 +33,9 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       fill_in 'メールアドレス', with: ''
       fill_in 'パスワード', with: ''
       fill_in 'パスワード(確認)', with: ''
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { User.count }.by(0)
+      end.to change { User.count }.by(0)
       expect(current_path).to eq user_registration_path
     end
   end
