@@ -83,9 +83,9 @@ https://user-images.githubusercontent.com/77495217/118120945-ae8cf980-b42b-11eb-
 
 # 実装予定
 
+- Vue.jsを使っての並び替え機能
 - AWSでのデプロイ
 - AWs Route 53を使っての独自ドメイン取得
-- Vue.jsを使っての並び替え機能
 
 
  
